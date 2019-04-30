@@ -1,4 +1,4 @@
-import { Cube } from "./types";
+import { Cube, ConsoleColorCode } from "./types";
 
 export class CubePresentor {
     
@@ -29,8 +29,19 @@ export class CubePresentor {
         const r9 = `   ${cube.back.topLeft}${cube.back.top}${cube.back.topRight}   `
         const ra = `   ${cube.back.left}${cube.back.center}${cube.back.right}   `
         const rb = `   ${cube.back.bottomLeft}${cube.back.bottom}${cube.back.bottomRight}   `
-        const c = `${r0}\r\n${r1}\r\n${r2}\r\n${r3}\r\n${r4}\r\n${r5}\r\n${r6}\r\n${r7}\r\n${r8}\r\n${r9}\r\n${ra}\r\n${rb}`
-        return c
+        
+        const bwConsoleCube = `${r0}\r\n${r1}\r\n${r2}\r\n${r3}\r\n${r4}\r\n${r5}\r\n${r6}\r\n${r7}\r\n${r8}\r\n${r9}\r\n${ra}\r\n${rb}`
+        const colorConsoleCube = CubePresentor.colorize(bwConsoleCube)
+        return colorConsoleCube
+    }
+
+    static colorize = (src : string) : string => {
+        src = src.split("R").join(`${ConsoleColorCode.FgRed}R${ConsoleColorCode.Reset}`)
+        src = src.split("G").join(`${ConsoleColorCode.FgGreen}G${ConsoleColorCode.Reset}`)
+        src = src.split("Y").join(`${ConsoleColorCode.Bright}${ConsoleColorCode.FgYellow}Y${ConsoleColorCode.Reset}`)
+        src = src.split("B").join(`${ConsoleColorCode.FgBlue}B${ConsoleColorCode.Reset}`)
+        src = src.split("O").join(`${ConsoleColorCode.FgYellow}O${ConsoleColorCode.Reset}`)
+        return src
     }
 
 }

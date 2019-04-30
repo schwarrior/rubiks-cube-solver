@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var types_1 = require("./types");
 var CubePresentor = /** @class */ (function () {
     function CubePresentor() {
     }
@@ -24,8 +25,17 @@ var CubePresentor = /** @class */ (function () {
         var r9 = "   " + cube.back.topLeft + cube.back.top + cube.back.topRight + "   ";
         var ra = "   " + cube.back.left + cube.back.center + cube.back.right + "   ";
         var rb = "   " + cube.back.bottomLeft + cube.back.bottom + cube.back.bottomRight + "   ";
-        var c = r0 + "\r\n" + r1 + "\r\n" + r2 + "\r\n" + r3 + "\r\n" + r4 + "\r\n" + r5 + "\r\n" + r6 + "\r\n" + r7 + "\r\n" + r8 + "\r\n" + r9 + "\r\n" + ra + "\r\n" + rb;
-        return c;
+        var bwConsoleCube = r0 + "\r\n" + r1 + "\r\n" + r2 + "\r\n" + r3 + "\r\n" + r4 + "\r\n" + r5 + "\r\n" + r6 + "\r\n" + r7 + "\r\n" + r8 + "\r\n" + r9 + "\r\n" + ra + "\r\n" + rb;
+        var colorConsoleCube = CubePresentor.colorize(bwConsoleCube);
+        return colorConsoleCube;
+    };
+    CubePresentor.colorize = function (src) {
+        src = src.split("R").join(types_1.ConsoleColorCode.FgRed + "R" + types_1.ConsoleColorCode.Reset);
+        src = src.split("G").join(types_1.ConsoleColorCode.FgGreen + "G" + types_1.ConsoleColorCode.Reset);
+        src = src.split("Y").join("" + types_1.ConsoleColorCode.Bright + types_1.ConsoleColorCode.FgYellow + "Y" + types_1.ConsoleColorCode.Reset);
+        src = src.split("B").join(types_1.ConsoleColorCode.FgBlue + "B" + types_1.ConsoleColorCode.Reset);
+        src = src.split("O").join(types_1.ConsoleColorCode.FgYellow + "O" + types_1.ConsoleColorCode.Reset);
+        return src;
     };
     return CubePresentor;
 }());
