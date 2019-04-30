@@ -12,8 +12,7 @@ var CubeManipulator = /** @class */ (function () {
         return rCube;
     };
     CubeManipulator.scramble = function (cube) {
-        throw new Error("Not implemented");
-        //todo implment random rotations
+        return cube;
     };
     return CubeManipulator;
 }());
