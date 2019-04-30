@@ -1,1 +1,3 @@
-console.log("Rubik's Cube Solver")
+import { Program } from "./program";
+
+new Program().run()
