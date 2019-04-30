@@ -12,7 +12,7 @@ var Program = /** @class */ (function () {
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(cube));
             console.log("\r\n");
             var scube;
-            for (var rotateIndex = 0; rotateIndex < 6; rotateIndex++) {
+            for (var rotateIndex = 6; rotateIndex < 7; rotateIndex++) {
                 scube = cube_manipulator_1.CubeManipulator.rotateOnce(cube, rotateIndex);
                 console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scube));
                 console.log("\r\n");

@@ -13,7 +13,7 @@ export class Program {
         console.log("\r\n")
 
         let scube : Cube
-        for (let rotateIndex = 0; rotateIndex < 6; rotateIndex ++) {
+        for (let rotateIndex = 6; rotateIndex < 7; rotateIndex ++) {
             scube = CubeManipulator.rotateOnce(cube, rotateIndex)
             console.log(CubePresentor.getConsoleRepresentation(scube))
             console.log("\r\n")

@@ -137,7 +137,20 @@ var CubeRotateLeftColumnClockwiseDown = /** @class */ (function () {
     function CubeRotateLeftColumnClockwiseDown() {
         this.description = "Rotate left column clockwise down";
         this.rotate = function (cube) {
-            throw new Error("Not Implmented");
+            var rCube = new types_1.Cube(cube);
+            rCube.front.topLeft = cube.top.topLeft;
+            rCube.front.left = cube.top.left;
+            rCube.front.bottomLeft = cube.top.bottomLeft;
+            rCube.bottom.topLeft = cube.front.topLeft;
+            rCube.bottom.left = cube.front.left;
+            rCube.bottom.bottomLeft = cube.front.bottomLeft;
+            rCube.back.topLeft = cube.bottom.topLeft;
+            rCube.back.left = cube.bottom.left;
+            rCube.back.bottomLeft = cube.bottom.bottomLeft;
+            rCube.top.topLeft = cube.back.topLeft;
+            rCube.top.left = cube.back.left;
+            rCube.top.bottomLeft = cube.back.bottomLeft;
+            return rCube;
         };
     }
     return CubeRotateLeftColumnClockwiseDown;
