@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Color;
 (function (Color) {
-    Color[Color["Yellow"] = 0] = "Yellow";
-    Color[Color["Blue"] = 1] = "Blue";
-    Color[Color["White"] = 2] = "White";
-    Color[Color["Green"] = 3] = "Green";
-    Color[Color["Red"] = 4] = "Red";
-    Color[Color["Orange"] = 5] = "Orange";
+    Color["Yellow"] = "Y";
+    Color["Blue"] = "B";
+    Color["White"] = "W";
+    Color["Green"] = "G";
+    Color["Red"] = "R";
+    Color["Orange"] = "O";
 })(Color = exports.Color || (exports.Color = {}));
 var Face = /** @class */ (function () {
     function Face() {

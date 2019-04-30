@@ -1,10 +1,10 @@
 export enum Color {
-    Yellow,
-    Blue,
-    White,
-    Green,
-    Red,
-    Orange
+    Yellow = "Y",
+    Blue = "B",
+    White = "W",
+    Green = "G",
+    Red = "R",
+    Orange = "O"
 }
 
 export class Face {
