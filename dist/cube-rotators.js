@@ -1,150 +1,152 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var types_1 = require("./types");
-var CubeRotatorDescribed = /** @class */ (function () {
-    function CubeRotatorDescribed() {
-    }
-    return CubeRotatorDescribed;
-}());
-exports.CubeRotatorDescribed = CubeRotatorDescribed;
-var CubeRotateTopRight = /** @class */ (function () {
-    function CubeRotateTopRight() {
+var CubeRotateTopRowClockwise = /** @class */ (function () {
+    function CubeRotateTopRowClockwise() {
+        this.description = "Rotate top row clockwise";
         this.rotate = function (cube) {
             var rCube = new types_1.Cube(cube);
-            rCube.left.topLeft = cube.front.topLeft;
-            rCube.left.top = cube.front.top;
-            rCube.left.topRight = cube.front.topRight;
             rCube.front.topLeft = cube.right.topLeft;
             rCube.front.top = cube.right.top;
             rCube.front.topRight = cube.right.topRight;
-            rCube.right.topLeft = cube.back.topLeft;
-            rCube.right.top = cube.back.top;
-            rCube.right.topRight = cube.back.topRight;
-            rCube.back.topLeft = cube.left.topLeft;
-            rCube.back.top = cube.left.top;
-            rCube.back.topRight = cube.left.topRight;
-            return rCube;
-        };
-    }
-    return CubeRotateTopRight;
-}());
-exports.CubeRotateTopRight = CubeRotateTopRight;
-var CubeRotateTopLeft = /** @class */ (function () {
-    function CubeRotateTopLeft() {
-        this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
-            var rightTopLeft = cube.right.topLeft;
-            var rightTop = cube.right.top;
-            var rightTopRight = cube.right.topRight;
-            rCube.right.topLeft = cube.back.topLeft;
-            rCube.right.top = cube.back.top;
-            rCube.right.topRight = cube.back.topRight;
-            rCube.back.topLeft = cube.left.topLeft;
-            rCube.back.top = cube.left.top;
-            rCube.back.topRight = cube.left.topRight;
             rCube.left.topLeft = cube.front.topLeft;
             rCube.left.top = cube.front.top;
             rCube.left.topRight = cube.front.topRight;
-            rCube.front.topLeft = rightTopLeft;
-            rCube.front.top = rightTop;
-            rCube.front.topRight = rightTopRight;
+            rCube.back.topLeft = cube.left.topLeft;
+            rCube.back.top = cube.left.top;
+            rCube.back.topRight = cube.left.topRight;
+            rCube.right.topLeft = cube.back.topLeft;
+            rCube.right.top = cube.back.top;
+            rCube.right.topRight = cube.back.topRight;
             return rCube;
         };
     }
-    return CubeRotateTopLeft;
+    return CubeRotateTopRowClockwise;
 }());
-exports.CubeRotateTopLeft = CubeRotateTopLeft;
-var CubeRotateMiddleRight = /** @class */ (function () {
-    function CubeRotateMiddleRight() {
+var CubeRotateTopRowCounterclockwise = /** @class */ (function () {
+    function CubeRotateTopRowCounterclockwise() {
+        this.description = "Rotate top row counterclockwise";
+        this.rotate = function (cube) {
+            var rCube = new types_1.Cube(cube);
+            rCube.front.topLeft = cube.left.topLeft;
+            rCube.front.top = cube.left.top;
+            rCube.front.topRight = cube.left.topRight;
+            rCube.right.topLeft = cube.front.topLeft;
+            rCube.right.top = cube.front.top;
+            rCube.right.topRight = cube.front.topRight;
+            rCube.back.topLeft = cube.right.topLeft;
+            rCube.back.top = cube.right.top;
+            rCube.back.topRight = cube.right.topRight;
+            rCube.left.topLeft = cube.back.topLeft;
+            rCube.left.top = cube.back.top;
+            rCube.left.topRight = cube.back.topRight;
+            return rCube;
+        };
+    }
+    return CubeRotateTopRowCounterclockwise;
+}());
+var CubeRotateMiddleRowClockwise = /** @class */ (function () {
+    function CubeRotateMiddleRowClockwise() {
+        this.description = "Rotate middle row clockwise";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateMiddleRight;
+    return CubeRotateMiddleRowClockwise;
 }());
-exports.CubeRotateMiddleRight = CubeRotateMiddleRight;
-var CubeRotateMiddleLeft = /** @class */ (function () {
-    function CubeRotateMiddleLeft() {
+var CubeRotateMiddleRowCounterclockwise = /** @class */ (function () {
+    function CubeRotateMiddleRowCounterclockwise() {
+        this.description = "Rotate middle row counterclockwise";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateMiddleLeft;
+    return CubeRotateMiddleRowCounterclockwise;
 }());
-exports.CubeRotateMiddleLeft = CubeRotateMiddleLeft;
-var CubeRotateBottomRight = /** @class */ (function () {
-    function CubeRotateBottomRight() {
+var CubeRotateBottomRowClockwise = /** @class */ (function () {
+    function CubeRotateBottomRowClockwise() {
+        this.description = "Rotate bottom row clockwise";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateBottomRight;
+    return CubeRotateBottomRowClockwise;
 }());
-exports.CubeRotateBottomRight = CubeRotateBottomRight;
-var CubeRotateBottomLeft = /** @class */ (function () {
-    function CubeRotateBottomLeft() {
+var CubeRotateBottomRowCounterclockwise = /** @class */ (function () {
+    function CubeRotateBottomRowCounterclockwise() {
+        this.description = "Rotate bottom row counterclockwise";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateBottomLeft;
+    return CubeRotateBottomRowCounterclockwise;
 }());
-exports.CubeRotateBottomLeft = CubeRotateBottomLeft;
-var CubeRotateLeftUp = /** @class */ (function () {
-    function CubeRotateLeftUp() {
+var CubeRotateLeftColumnClockwiseDown = /** @class */ (function () {
+    function CubeRotateLeftColumnClockwiseDown() {
+        this.description = "Rotate left column clockwise down";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateLeftUp;
+    return CubeRotateLeftColumnClockwiseDown;
 }());
-exports.CubeRotateLeftUp = CubeRotateLeftUp;
-var CubeRotateLeftDown = /** @class */ (function () {
-    function CubeRotateLeftDown() {
+var CubeRotateLeftColumnCounterclockwiseUp = /** @class */ (function () {
+    function CubeRotateLeftColumnCounterclockwiseUp() {
+        this.description = "Rotate left column counterclockwise up";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateLeftDown;
+    return CubeRotateLeftColumnCounterclockwiseUp;
 }());
-exports.CubeRotateLeftDown = CubeRotateLeftDown;
-var CubeRotateCenterUp = /** @class */ (function () {
-    function CubeRotateCenterUp() {
+var CubeRotateCenterColumnClockwiseDown = /** @class */ (function () {
+    function CubeRotateCenterColumnClockwiseDown() {
+        this.description = "Rotate center column clockwise down";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateCenterUp;
+    return CubeRotateCenterColumnClockwiseDown;
 }());
-exports.CubeRotateCenterUp = CubeRotateCenterUp;
-var CubeRotateCenterDown = /** @class */ (function () {
-    function CubeRotateCenterDown() {
+var CubeRotateCenterColumnCounterclockwiseUp = /** @class */ (function () {
+    function CubeRotateCenterColumnCounterclockwiseUp() {
+        this.description = "Rotate center column clockwise down";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateCenterDown;
+    return CubeRotateCenterColumnCounterclockwiseUp;
 }());
-exports.CubeRotateCenterDown = CubeRotateCenterDown;
-var CubeRotateRightUp = /** @class */ (function () {
-    function CubeRotateRightUp() {
+var CubeRotateRightColumnClockwiseDown = /** @class */ (function () {
+    function CubeRotateRightColumnClockwiseDown() {
+        this.description = "Rotate right column clockwise down";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateRightUp;
+    return CubeRotateRightColumnClockwiseDown;
 }());
-exports.CubeRotateRightUp = CubeRotateRightUp;
-var CubeRotateRightDown = /** @class */ (function () {
-    function CubeRotateRightDown() {
+var CubeRotateRightColumnCounterclockwiseUp = /** @class */ (function () {
+    function CubeRotateRightColumnCounterclockwiseUp() {
+        this.description = "Rotate right column counterclockwise up";
         this.rotate = function (cube) {
             throw new Error("Not Implmented");
         };
     }
-    return CubeRotateRightDown;
+    return CubeRotateRightColumnCounterclockwiseUp;
 }());
-exports.CubeRotateRightDown = CubeRotateRightDown;
 exports.CubeRotators = [
-    { description: "Rotate Top Right", rotator: new CubeRotateTopRight() }
+    new CubeRotateTopRowClockwise(),
+    new CubeRotateTopRowCounterclockwise(),
+    new CubeRotateMiddleRowClockwise(),
+    new CubeRotateMiddleRowCounterclockwise(),
+    new CubeRotateBottomRowClockwise(),
+    new CubeRotateBottomRowCounterclockwise(),
+    new CubeRotateLeftColumnClockwiseDown(),
+    new CubeRotateLeftColumnCounterclockwiseUp(),
+    new CubeRotateCenterColumnClockwiseDown(),
+    new CubeRotateCenterColumnCounterclockwiseUp(),
+    new CubeRotateRightColumnClockwiseDown(),
+    new CubeRotateRightColumnCounterclockwiseUp(),
 ];
 //# sourceMappingURL=cube-rotators.js.map

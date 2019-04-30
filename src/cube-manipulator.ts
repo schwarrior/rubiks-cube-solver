@@ -5,17 +5,15 @@ export class CubeManipulator {
     
     static cubeRotators = CubeRotators
 
-    static scramble = (cube : Cube) : Cube => {
-        //const scube = new Cube(cube)
-        //const rotateTopRight = new CubeRotateTopRight()
-        //return rotateTopRight.rotate(cube)
-        const r = CubeManipulator.cubeRotators[0]
+    static rotateOnce = (cube : Cube, rotationIndex : number) => {
+        const r = CubeManipulator.cubeRotators[rotationIndex]
         console.log(r.description)
-        const rCube = r.rotator.rotate(cube)
+        const rCube = r.rotate(cube)
         return rCube
-        
-        //todo implement rotations
-        //todo test rotations
+    }
+
+    static scramble = (cube : Cube) : Cube => {
+        throw new Error("Not implemented")
         //todo implment random rotations
     }   
 }

@@ -12,8 +12,13 @@ export class Program {
         console.log(CubePresentor.getConsoleRepresentation(cube))
         console.log("\r\n")
 
-        const scube = CubeManipulator.scramble(cube)
-        console.log("Scrambled Cube:")
+        let scube : Cube
+
+        scube = CubeManipulator.rotateOnce(cube, 0)
+        console.log(CubePresentor.getConsoleRepresentation(scube))
+        console.log("\r\n")
+
+        scube = CubeManipulator.rotateOnce(cube, 1)
         console.log(CubePresentor.getConsoleRepresentation(scube))
         console.log("\r\n")
 

@@ -5,16 +5,14 @@ var CubeManipulator = /** @class */ (function () {
     function CubeManipulator() {
     }
     CubeManipulator.cubeRotators = cube_rotators_1.CubeRotators;
-    CubeManipulator.scramble = function (cube) {
-        //const scube = new Cube(cube)
-        //const rotateTopRight = new CubeRotateTopRight()
-        //return rotateTopRight.rotate(cube)
-        var r = CubeManipulator.cubeRotators[0];
+    CubeManipulator.rotateOnce = function (cube, rotationIndex) {
+        var r = CubeManipulator.cubeRotators[rotationIndex];
         console.log(r.description);
-        var rCube = r.rotator.rotate(cube);
+        var rCube = r.rotate(cube);
         return rCube;
-        //todo implement rotations
-        //todo test rotations
+    };
+    CubeManipulator.scramble = function (cube) {
+        throw new Error("Not implemented");
         //todo implment random rotations
     };
     return CubeManipulator;
