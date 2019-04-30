@@ -8,9 +8,6 @@ export class CubePresentor {
 
     static getConsoleRepresentation = (cube: Cube) : string => {
 
-        //for console colorization codes
-        //https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
-
         const r0 = `   ${cube.top.topLeft}${cube.top.top}${cube.top.topRight}   `
         const r1 = `   ${cube.top.left}${cube.top.center}${cube.top.right}   `
         const r2 = `   ${cube.top.bottomLeft}${cube.top.bottom}${cube.top.bottomRight}   `

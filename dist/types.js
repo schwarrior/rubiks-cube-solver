@@ -21,6 +21,7 @@ var Cube = /** @class */ (function () {
     return Cube;
 }());
 exports.Cube = Cube;
+//https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
 var ConsoleColorCode;
 (function (ConsoleColorCode) {
     ConsoleColorCode["Reset"] = "\u001B[0m";
