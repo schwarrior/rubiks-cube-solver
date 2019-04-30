@@ -4,18 +4,17 @@ import { CubeManipulator } from "./cube-manipulator";
 
 export class Program {
     run = () => {
-        console.log("Rubik's Cube Solver")
-        console.log()
+        console.log("Rubik's Cube Solver\r\n")
 
         const cube = CubeCreator.getNewCube()
         console.log("New Cube:")
         console.log(CubePresentor.getConsoleRepresentation(cube))
-        console.log()
+        console.log("\r\n")
 
         const scube = CubeManipulator.rotateTopRight(cube)
         console.log("Scrambled Cube:")
         console.log(CubePresentor.getConsoleRepresentation(scube))
-        console.log()
+        console.log("\r\n")
 
         console.log("Done")
 
