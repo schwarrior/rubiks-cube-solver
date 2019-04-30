@@ -11,7 +11,7 @@ var Program = /** @class */ (function () {
             console.log("New Cube:");
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(cube));
             console.log("\r\n");
-            var scube = cube_manipulator_1.CubeManipulator.rotateTopRight(cube);
+            var scube = cube_manipulator_1.CubeManipulator.scrabble(cube);
             console.log("Scrambled Cube:");
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scube));
             console.log("\r\n");

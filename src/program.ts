@@ -11,7 +11,7 @@ export class Program {
         console.log(CubePresentor.getConsoleRepresentation(cube))
         console.log("\r\n")
 
-        const scube = CubeManipulator.rotateTopRight(cube)
+        const scube = CubeManipulator.scrabble(cube)
         console.log("Scrambled Cube:")
         console.log(CubePresentor.getConsoleRepresentation(scube))
         console.log("\r\n")
