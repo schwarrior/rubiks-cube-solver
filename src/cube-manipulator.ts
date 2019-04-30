@@ -13,15 +13,53 @@ export class CubeManipulator {
         return rCube
     }
 
-    static scramble = (cube : Cube) : Cube => {
+    static scramble = (cube : Cube, outputMoves? : boolean) : Cube => {
         const scrambleMoveCount = Randomizer.getRandomInt(50, 250)
         let scube = new Cube(cube)
         for (let moveIndex = 0; moveIndex < scrambleMoveCount; moveIndex++) {
             const rotatorIndex = Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1)
             const rotator = CubeManipulator.cubeRotators[rotatorIndex]
-            console.log(`Scramble move ${moveIndex + 1} of ${scrambleMoveCount}: ${rotator.description}`)
+            if (outputMoves) { console.log(`Scramble move ${moveIndex + 1} of ${scrambleMoveCount}: ${rotator.description}`) }
             scube = rotator.rotate(scube)
         }
         return scube
     }   
+
+    static solve = (scrambledCube: Cube) : Cube => {
+        return scrambledCube
+    }
+
+    static isSolved = (candidateCube : Cube) : boolean => {
+        const c = candidateCube
+        
+        if (c.front.center !== c.front.topLeft) {return false}
+        if (c.front.center !== c.front.top) {return false}
+        if (c.front.center !== c.front.topRight) {return false}
+        if (c.front.center !== c.front.left) {return false}
+        if (c.front.center !== c.front.right) {return false}
+        if (c.front.center !== c.front.bottomLeft) {return false}
+        if (c.front.center !== c.front.bottom) {return false}
+        if (c.front.center !== c.front.bottomRight) {return false}
+
+        if (c.top.center !== c.top.topLeft) {return false}
+        if (c.top.center !== c.top.top) {return false}
+        if (c.top.center !== c.top.topRight) {return false}
+        if (c.top.center !== c.top.left) {return false}
+        if (c.top.center !== c.top.right) {return false}
+        if (c.top.center !== c.top.bottomLeft) {return false}
+        if (c.top.center !== c.top.bottom) {return false}
+        if (c.top.center !== c.top.bottomRight) {return false}
+
+        if (c.right.center !== c.right.topLeft) {return false}
+        if (c.right.center !== c.right.top) {return false}
+        if (c.right.center !== c.right.topRight) {return false}
+        if (c.right.center !== c.right.left) {return false}
+        if (c.right.center !== c.right.right) {return false}
+        if (c.right.center !== c.right.bottomLeft) {return false}
+        if (c.right.center !== c.right.bottom) {return false}
+        if (c.right.center !== c.right.bottomRight) {return false}
+
+        return true
+    }
+
 }
