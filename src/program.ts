@@ -1,7 +1,6 @@
 import { CubePresentor } from "./cube-presentor";
 import { CubeManipulator } from "./cube-manipulator";
 import { Cube } from "./types";
-import { Randomizer } from "./randomizer";
 
 export class Program {
     run = () => {
@@ -16,8 +15,7 @@ export class Program {
         console.log("\r\n")
 
         //test randoms
-        Randomizer.testRandoms(1, 10, 50)
-
+        // Randomizer.testRandoms(1, 10, 50)
 
         //output new (solved) cube
         // const cube = new Cube()

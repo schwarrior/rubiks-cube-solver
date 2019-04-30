@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var cube_presentor_1 = require("./cube-presentor");
 var cube_manipulator_1 = require("./cube-manipulator");
 var types_1 = require("./types");
-var randomizer_1 = require("./randomizer");
 var Program = /** @class */ (function () {
     function Program() {
         this.run = function () {
@@ -16,7 +15,7 @@ var Program = /** @class */ (function () {
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scube));
             console.log("\r\n");
             //test randoms
-            randomizer_1.Randomizer.testRandoms(1, 10, 50);
+            // Randomizer.testRandoms(1, 10, 50)
             //output new (solved) cube
             // const cube = new Cube()
             // console.log("Orig Cube:")
