@@ -1,0 +1,1 @@
+console.log("Rubik's Cube Solver")

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+      "baseUrl": ".",
+      "paths": { "*": ["types/*"] },
+    "sourceMap": true,
+    "target": "es5",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es6"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./custom-types"
+    ]
+  },
+  "include": [
+      "src/**/*"
+  ],
+  "exclude": [
+      "node_modules"
+  ]
+}

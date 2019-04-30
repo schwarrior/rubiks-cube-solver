@@ -1,0 +1,32 @@
+*.~*
+
+bin
+obj
+csx
+.vs
+edge
+Publish
+
+*.user
+*.suo
+*.cscfg
+*.Cache
+project.lock.json
+
+/packages
+/TestResults
+
+/tools/NuGet.exe
+/App_Data
+/secrets
+/data
+.secrets
+appsettings.json
+
+# restore igrore of these files at prod release
+# local.settings.json
+# .env
+
+node_modules
+
+.DS_Store
