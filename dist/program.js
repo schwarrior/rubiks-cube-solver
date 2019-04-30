@@ -6,13 +6,14 @@ var types_1 = require("./types");
 var Program = /** @class */ (function () {
     function Program() {
         this.run = function () {
-            console.log("Rubik's Cube Solver\r\n");
+            console.log("Rubik's Cube Solver");
+            console.log("\r\n");
             var cube = new types_1.Cube();
             console.log("Orig Cube:");
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(cube));
             console.log("\r\n");
             var scube;
-            for (var rotateIndex = 6; rotateIndex < 12; rotateIndex += 2) {
+            for (var rotateIndex = 0; rotateIndex < 12; rotateIndex++) {
                 scube = cube_manipulator_1.CubeManipulator.rotateOnce(cube, rotateIndex);
                 console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scube));
                 console.log("\r\n");

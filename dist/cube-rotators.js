@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var types_1 = require("./types");
+//horizontal rotations
 var CubeRotateTopRowClockwise = /** @class */ (function () {
     function CubeRotateTopRowClockwise() {
         this.description = "Rotate top row clockwise";
@@ -133,6 +134,7 @@ var CubeRotateBottomRowCounterclockwise = /** @class */ (function () {
     }
     return CubeRotateBottomRowCounterclockwise;
 }());
+//vertical rotations
 var CubeRotateLeftColumnClockwiseDown = /** @class */ (function () {
     function CubeRotateLeftColumnClockwiseDown() {
         this.description = "Rotate left column clockwise down";
@@ -159,7 +161,20 @@ var CubeRotateLeftColumnCounterclockwiseUp = /** @class */ (function () {
     function CubeRotateLeftColumnCounterclockwiseUp() {
         this.description = "Rotate left column counterclockwise up";
         this.rotate = function (cube) {
-            throw new Error("Not Implmented");
+            var rCube = new types_1.Cube(cube);
+            rCube.front.topLeft = cube.bottom.topLeft;
+            rCube.front.left = cube.bottom.left;
+            rCube.front.bottomLeft = cube.bottom.bottomLeft;
+            rCube.bottom.topLeft = cube.back.topLeft;
+            rCube.bottom.left = cube.back.left;
+            rCube.bottom.bottomLeft = cube.back.bottomLeft;
+            rCube.back.topLeft = cube.top.topLeft;
+            rCube.back.left = cube.top.left;
+            rCube.back.bottomLeft = cube.top.bottomLeft;
+            rCube.top.topLeft = cube.front.topLeft;
+            rCube.top.left = cube.front.left;
+            rCube.top.bottomLeft = cube.front.bottomLeft;
+            return rCube;
         };
     }
     return CubeRotateLeftColumnCounterclockwiseUp;
@@ -188,9 +203,22 @@ var CubeRotateCenterColumnClockwiseDown = /** @class */ (function () {
 }());
 var CubeRotateCenterColumnCounterclockwiseUp = /** @class */ (function () {
     function CubeRotateCenterColumnCounterclockwiseUp() {
-        this.description = "Rotate center column clockwise down";
+        this.description = "Rotate center column counterclockwise up";
         this.rotate = function (cube) {
-            throw new Error("Not Implmented");
+            var rCube = new types_1.Cube(cube);
+            rCube.front.top = cube.bottom.top;
+            rCube.front.center = cube.bottom.center;
+            rCube.front.bottom = cube.bottom.bottom;
+            rCube.bottom.top = cube.back.top;
+            rCube.bottom.center = cube.back.center;
+            rCube.bottom.bottom = cube.back.bottom;
+            rCube.back.top = cube.top.top;
+            rCube.back.center = cube.top.center;
+            rCube.back.bottom = cube.top.bottom;
+            rCube.top.top = cube.front.top;
+            rCube.top.center = cube.front.center;
+            rCube.top.bottom = cube.front.bottom;
+            return rCube;
         };
     }
     return CubeRotateCenterColumnCounterclockwiseUp;
@@ -221,7 +249,20 @@ var CubeRotateRightColumnCounterclockwiseUp = /** @class */ (function () {
     function CubeRotateRightColumnCounterclockwiseUp() {
         this.description = "Rotate right column counterclockwise up";
         this.rotate = function (cube) {
-            throw new Error("Not Implmented");
+            var rCube = new types_1.Cube(cube);
+            rCube.front.topRight = cube.bottom.topRight;
+            rCube.front.right = cube.bottom.right;
+            rCube.front.bottomRight = cube.bottom.bottomRight;
+            rCube.bottom.topRight = cube.back.topRight;
+            rCube.bottom.right = cube.back.right;
+            rCube.bottom.bottomRight = cube.back.bottomRight;
+            rCube.back.topRight = cube.top.topRight;
+            rCube.back.right = cube.top.right;
+            rCube.back.bottomRight = cube.top.bottomRight;
+            rCube.top.topRight = cube.front.topRight;
+            rCube.top.right = cube.front.right;
+            rCube.top.bottomRight = cube.front.bottomRight;
+            return rCube;
         };
     }
     return CubeRotateRightColumnCounterclockwiseUp;

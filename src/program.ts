@@ -5,7 +5,8 @@ import { Cube } from "./types";
 
 export class Program {
     run = () => {
-        console.log("Rubik's Cube Solver\r\n")
+        console.log("Rubik's Cube Solver")
+        console.log("\r\n")
 
         const cube = new Cube()
         console.log("Orig Cube:")
@@ -13,7 +14,7 @@ export class Program {
         console.log("\r\n")
 
         let scube : Cube
-        for (let rotateIndex = 6; rotateIndex < 12; rotateIndex += 2) {
+        for (let rotateIndex = 0; rotateIndex < 12; rotateIndex ++) {
             scube = CubeManipulator.rotateOnce(cube, rotateIndex)
             console.log(CubePresentor.getConsoleRepresentation(scube))
             console.log("\r\n")
