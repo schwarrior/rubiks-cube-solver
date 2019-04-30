@@ -58,30 +58,106 @@ class CubeRotateTopRowCounterclockwise implements CubeRotator {
 class CubeRotateMiddleRowClockwise implements CubeRotator {
     description = "Rotate middle row clockwise"
     rotate = (cube : Cube) : Cube => {
-        throw new Error("Not Implmented")
+        const rCube = new Cube(cube)
+
+        rCube.front.left = cube.right.left
+        rCube.front.center = cube.right.center
+        rCube.front.right = cube.right.right
+
+        rCube.left.left = cube.front.left 
+        rCube.left.center = cube.front.center
+        rCube.left.right = cube.front.right
+
+        rCube.back.left = cube.left.left
+        rCube.back.center = cube.left.center
+        rCube.back.right = cube.left.right
+
+        rCube.right.left = cube.back.left
+        rCube.right.center = cube.back.center
+        rCube.right.right = cube.back.right
+
+        return rCube
     }
 }
 
 class CubeRotateMiddleRowCounterclockwise implements CubeRotator {
     description = "Rotate middle row counterclockwise"
     rotate = (cube : Cube) : Cube => {
-        throw new Error("Not Implmented")
+        const rCube = new Cube(cube)
+
+        rCube.front.left = cube.left.left
+        rCube.front.center = cube.left.center
+        rCube.front.right = cube.left.right
+
+        rCube.right.left = cube.front.left
+        rCube.right.center = cube.front.center
+        rCube.right.right = cube.front.right
+
+        rCube.back.left = cube.right.left
+        rCube.back.center = cube.right.center
+        rCube.back.right = cube.right.right
+
+        rCube.left.left = cube.back.left 
+        rCube.left.center = cube.back.center
+        rCube.left.right = cube.back.right
+
+        return rCube
     }
 }
 
 class CubeRotateBottomRowClockwise implements CubeRotator {
     description = "Rotate bottom row clockwise"
     rotate = (cube : Cube) : Cube => {
-        throw new Error("Not Implmented")
+        const rCube = new Cube(cube)
+
+        rCube.front.bottomLeft = cube.right.bottomLeft
+        rCube.front.bottom = cube.right.bottom
+        rCube.front.bottomRight = cube.right.bottomRight
+
+        rCube.left.bottomLeft = cube.front.bottomLeft 
+        rCube.left.bottom = cube.front.bottom
+        rCube.left.bottomRight = cube.front.bottomRight
+
+        rCube.back.bottomLeft = cube.left.bottomLeft
+        rCube.back.bottom = cube.left.bottom
+        rCube.back.bottomRight = cube.left.bottomRight
+
+        rCube.right.bottomLeft = cube.back.bottomLeft
+        rCube.right.bottom = cube.back.bottom
+        rCube.right.bottomRight = cube.back.bottomRight
+
+        return rCube
     }
 }
 
 class CubeRotateBottomRowCounterclockwise implements CubeRotator {
     description = "Rotate bottom row counterclockwise"
     rotate = (cube : Cube) : Cube => {
-        throw new Error("Not Implmented")
+        const rCube = new Cube(cube)
+
+        rCube.front.bottomLeft = cube.left.bottomLeft
+        rCube.front.bottom = cube.left.bottom
+        rCube.front.bottomRight = cube.left.bottomRight
+
+        rCube.right.bottomLeft = cube.front.bottomLeft
+        rCube.right.bottom = cube.front.bottom
+        rCube.right.bottomRight = cube.front.bottomRight
+
+        rCube.back.bottomLeft = cube.right.bottomLeft
+        rCube.back.bottom = cube.right.bottom
+        rCube.back.bottomRight = cube.right.bottomRight
+
+        rCube.left.bottomLeft = cube.back.bottomLeft 
+        rCube.left.bottom = cube.back.bottom
+        rCube.left.bottomRight = cube.back.bottomRight
+
+        return rCube
     }
 }
+
+
+
+
 
 class CubeRotateLeftColumnClockwiseDown implements CubeRotator {
     description = "Rotate left column clockwise down"

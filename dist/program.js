@@ -12,12 +12,11 @@ var Program = /** @class */ (function () {
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(cube));
             console.log("\r\n");
             var scube;
-            scube = cube_manipulator_1.CubeManipulator.rotateOnce(cube, 0);
-            console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scube));
-            console.log("\r\n");
-            scube = cube_manipulator_1.CubeManipulator.rotateOnce(cube, 1);
-            console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scube));
-            console.log("\r\n");
+            for (var rotateIndex = 0; rotateIndex < 6; rotateIndex++) {
+                scube = cube_manipulator_1.CubeManipulator.rotateOnce(cube, rotateIndex);
+                console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scube));
+                console.log("\r\n");
+            }
             console.log("Done");
         };
     }

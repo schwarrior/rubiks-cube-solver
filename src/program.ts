@@ -13,14 +13,11 @@ export class Program {
         console.log("\r\n")
 
         let scube : Cube
-
-        scube = CubeManipulator.rotateOnce(cube, 0)
-        console.log(CubePresentor.getConsoleRepresentation(scube))
-        console.log("\r\n")
-
-        scube = CubeManipulator.rotateOnce(cube, 1)
-        console.log(CubePresentor.getConsoleRepresentation(scube))
-        console.log("\r\n")
+        for (let rotateIndex = 0; rotateIndex < 6; rotateIndex ++) {
+            scube = CubeManipulator.rotateOnce(cube, rotateIndex)
+            console.log(CubePresentor.getConsoleRepresentation(scube))
+            console.log("\r\n")
+        }
 
         console.log("Done")
 
