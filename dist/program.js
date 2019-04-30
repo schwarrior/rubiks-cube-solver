@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var cube_manipulator_1 = require("./cube-manipulator");
+var cube_creator_1 = require("./cube-creator");
+var cube_presentor_1 = require("./cube-presentor");
 var Program = /** @class */ (function () {
     function Program() {
         this.run = function () {
             console.log("Rubik's Cube Solver");
-            var cubeMan = new cube_manipulator_1.CubeManipulator();
-            var cube = cubeMan.getSolvedCube();
-            console.log(JSON.stringify(cube));
+            var cube = cube_creator_1.CubeCreator.getSolvedCube();
+            console.log(cube_presentor_1.CubePresentor.getSerializedVerbose(cube));
         };
     }
     return Program;
