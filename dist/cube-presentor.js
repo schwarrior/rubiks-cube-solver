@@ -30,11 +30,12 @@ var CubePresentor = /** @class */ (function () {
         return colorConsoleCube;
     };
     CubePresentor.colorize = function (src) {
-        src = src.split("R").join(types_1.ConsoleColorCode.FgRed + "R" + types_1.ConsoleColorCode.Reset);
-        src = src.split("G").join(types_1.ConsoleColorCode.FgGreen + "G" + types_1.ConsoleColorCode.Reset);
-        src = src.split("Y").join("" + types_1.ConsoleColorCode.Bright + types_1.ConsoleColorCode.FgYellow + "Y" + types_1.ConsoleColorCode.Reset);
-        src = src.split("B").join(types_1.ConsoleColorCode.FgBlue + "B" + types_1.ConsoleColorCode.Reset);
-        src = src.split("O").join(types_1.ConsoleColorCode.FgYellow + "O" + types_1.ConsoleColorCode.Reset);
+        src = src.split("R").join(types_1.ConsoleColorCode.BgRed + "R" + types_1.ConsoleColorCode.Reset);
+        src = src.split("G").join(types_1.ConsoleColorCode.BgGreen + "G" + types_1.ConsoleColorCode.Reset);
+        src = src.split("Y").join(types_1.ConsoleColorCode.BgYellow + "Y" + types_1.ConsoleColorCode.Reset);
+        src = src.split("B").join(types_1.ConsoleColorCode.BgBlue + "B" + types_1.ConsoleColorCode.Reset);
+        src = src.split("O").join("" + types_1.ConsoleColorCode.BgYellow + types_1.ConsoleColorCode.FgRed + "O" + types_1.ConsoleColorCode.Reset);
+        src = src.split("W").join("" + types_1.ConsoleColorCode.BgWhite + types_1.ConsoleColorCode.FgBlack + "W" + types_1.ConsoleColorCode.Reset);
         return src;
     };
     return CubePresentor;

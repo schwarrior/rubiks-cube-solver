@@ -36,11 +36,12 @@ export class CubePresentor {
     }
 
     static colorize = (src : string) : string => {
-        src = src.split("R").join(`${ConsoleColorCode.FgRed}R${ConsoleColorCode.Reset}`)
-        src = src.split("G").join(`${ConsoleColorCode.FgGreen}G${ConsoleColorCode.Reset}`)
-        src = src.split("Y").join(`${ConsoleColorCode.Bright}${ConsoleColorCode.FgYellow}Y${ConsoleColorCode.Reset}`)
-        src = src.split("B").join(`${ConsoleColorCode.FgBlue}B${ConsoleColorCode.Reset}`)
-        src = src.split("O").join(`${ConsoleColorCode.FgYellow}O${ConsoleColorCode.Reset}`)
+        src = src.split("R").join(`${ConsoleColorCode.BgRed}R${ConsoleColorCode.Reset}`)
+        src = src.split("G").join(`${ConsoleColorCode.BgGreen}G${ConsoleColorCode.Reset}`)
+        src = src.split("Y").join(`${ConsoleColorCode.BgYellow}Y${ConsoleColorCode.Reset}`)
+        src = src.split("B").join(`${ConsoleColorCode.BgBlue}B${ConsoleColorCode.Reset}`)
+        src = src.split("O").join(`${ConsoleColorCode.BgYellow}${ConsoleColorCode.FgRed}O${ConsoleColorCode.Reset}`)
+        src = src.split("W").join(`${ConsoleColorCode.BgWhite}${ConsoleColorCode.FgBlack}W${ConsoleColorCode.Reset}`)
         return src
     }
 
