@@ -4,7 +4,7 @@ var types_1 = require("./types");
 var CubeCreator = /** @class */ (function () {
     function CubeCreator() {
     }
-    CubeCreator.getSolvedCube = function () {
+    CubeCreator.getNewCube = function () {
         var front = {
             bottom: types_1.Color.Yellow,
             bottomRight: types_1.Color.Yellow,

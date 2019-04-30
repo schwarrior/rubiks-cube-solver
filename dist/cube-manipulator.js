@@ -1,85 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var types_1 = require("./types");
 var CubeManipulator = /** @class */ (function () {
     function CubeManipulator() {
-        this.getSolvedCube = function () {
-            var front = {
-                bottom: types_1.Color.Yellow,
-                bottomRight: types_1.Color.Yellow,
-                right: types_1.Color.Yellow,
-                topRight: types_1.Color.Yellow,
-                top: types_1.Color.Yellow,
-                topLeft: types_1.Color.Yellow,
-                left: types_1.Color.Yellow,
-                bottomLeft: types_1.Color.Yellow,
-                center: types_1.Color.Yellow
-            };
-            var right = {
-                bottom: types_1.Color.Blue,
-                bottomRight: types_1.Color.Blue,
-                right: types_1.Color.Blue,
-                topRight: types_1.Color.Blue,
-                top: types_1.Color.Blue,
-                topLeft: types_1.Color.Blue,
-                left: types_1.Color.Blue,
-                bottomLeft: types_1.Color.Blue,
-                center: types_1.Color.Blue
-            };
-            var back = {
-                bottom: types_1.Color.White,
-                bottomRight: types_1.Color.White,
-                right: types_1.Color.White,
-                topRight: types_1.Color.White,
-                top: types_1.Color.White,
-                topLeft: types_1.Color.White,
-                left: types_1.Color.White,
-                bottomLeft: types_1.Color.White,
-                center: types_1.Color.White
-            };
-            var left = {
-                bottom: types_1.Color.Green,
-                bottomRight: types_1.Color.Green,
-                right: types_1.Color.Green,
-                topRight: types_1.Color.Green,
-                top: types_1.Color.Green,
-                topLeft: types_1.Color.Green,
-                left: types_1.Color.Green,
-                bottomLeft: types_1.Color.Green,
-                center: types_1.Color.Green
-            };
-            var top = {
-                bottom: types_1.Color.Red,
-                bottomRight: types_1.Color.Red,
-                right: types_1.Color.Red,
-                topRight: types_1.Color.Red,
-                top: types_1.Color.Red,
-                topLeft: types_1.Color.Red,
-                left: types_1.Color.Red,
-                bottomLeft: types_1.Color.Red,
-                center: types_1.Color.Red
-            };
-            var bottom = {
-                bottom: types_1.Color.Orange,
-                bottomRight: types_1.Color.Orange,
-                right: types_1.Color.Orange,
-                topRight: types_1.Color.Orange,
-                top: types_1.Color.Orange,
-                topLeft: types_1.Color.Orange,
-                left: types_1.Color.Orange,
-                bottomLeft: types_1.Color.Orange,
-                center: types_1.Color.Orange
-            };
-            return {
-                front: front,
-                right: right,
-                back: back,
-                left: left,
-                top: top,
-                bottom: bottom
-            };
-        };
     }
+    CubeManipulator.rotateTopRight = function (cube) {
+        var rightTopLeft = cube.right.topLeft;
+        var rightTop = cube.right.top;
+        var rightTopRight = cube.right.topRight;
+        cube.right.topLeft = cube.back.topLeft;
+        cube.right.top = cube.back.top;
+        cube.right.topRight = cube.back.topRight;
+        cube.back.topLeft = cube.left.topLeft;
+        cube.back.top = cube.left.top;
+        cube.back.topRight = cube.left.topRight;
+        cube.left.topLeft = cube.front.topLeft;
+        cube.left.top = cube.front.top;
+        cube.left.topRight = cube.front.topRight;
+        cube.front.topLeft = rightTopLeft;
+        cube.front.top = rightTop;
+        cube.front.topRight = rightTopRight;
+        return cube;
+    };
     return CubeManipulator;
 }());
 exports.CubeManipulator = CubeManipulator;

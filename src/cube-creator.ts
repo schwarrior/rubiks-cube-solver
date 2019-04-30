@@ -2,7 +2,7 @@ import { Cube, Face, Color } from "./types";
 
 export class CubeCreator {
     
-    static getSolvedCube = () : Cube => {
+    static getNewCube = () : Cube => {
         const front : Face = {
             bottom : Color.Yellow,
             bottomRight : Color.Yellow,
