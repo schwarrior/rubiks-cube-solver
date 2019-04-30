@@ -7,7 +7,7 @@ var Program = /** @class */ (function () {
         this.run = function () {
             console.log("Rubik's Cube Solver");
             var cube = cube_creator_1.CubeCreator.getSolvedCube();
-            console.log(cube_presentor_1.CubePresentor.getSerializedVerbose(cube));
+            //console.log(CubePresentor.getSerializedVerbose(cube))
             var cubeForConsole = cube_presentor_1.CubePresentor.getConsoleRepresentation(cube);
             console.log(cubeForConsole);
         };

@@ -7,6 +7,8 @@ var CubePresentor = /** @class */ (function () {
         return JSON.stringify(cube);
     };
     CubePresentor.getConsoleRepresentation = function (cube) {
+        //for console colorization codes
+        //https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
         var r0 = "   " + cube.top.topLeft + cube.top.top + cube.top.topRight + "   ";
         var r1 = "   " + cube.top.left + cube.top.center + cube.top.right + "   ";
         var r2 = "   " + cube.top.bottomLeft + cube.top.bottom + cube.top.bottomRight + "   ";
