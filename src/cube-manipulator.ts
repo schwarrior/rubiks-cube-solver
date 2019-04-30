@@ -25,8 +25,20 @@ export class CubeManipulator {
         return scube
     }   
 
-    static solve = (scrambledCube: Cube) : Cube => {
-        return scrambledCube
+    static solve = (cube: Cube, outputMoves? : boolean) : Cube => {
+        let candidateCube = new Cube(cube)
+        let moveCount = 0
+        let isSolved = CubeManipulator.isSolved(candidateCube)
+        while (!isSolved) {
+            moveCount ++
+            const rotatorIndex = Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1)
+            const rotator = CubeManipulator.cubeRotators[rotatorIndex]
+            if (outputMoves) { console.log(`Trying move ${moveCount}: ${rotator.description}`) }
+            candidateCube = rotator.rotate(candidateCube)
+            isSolved = CubeManipulator.isSolved(candidateCube)
+        }
+        console.log(`Solution found in ${moveCount} moves`)
+        return candidateCube
     }
 
     static isSolved = (candidateCube : Cube) : boolean => {

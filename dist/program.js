@@ -11,16 +11,19 @@ var Program = /** @class */ (function () {
             //create a randomly scrambled cube
             var newCube = new types_1.Cube();
             var scrambledCube = cube_manipulator_1.CubeManipulator.scramble(newCube);
-            console.log("Scrambled Cube:");
+            console.log("Scrambled cube:");
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scrambledCube));
             console.log("\r\n");
             // solve scrambled cube
-            var solvedCube = cube_manipulator_1.CubeManipulator.solve(scrambledCube);
-            // test isSolved method
-            var newCubeIsSolved = cube_manipulator_1.CubeManipulator.isSolved(newCube);
-            console.log("New cube is solved: " + newCubeIsSolved);
-            var scrambledCubeIsSolved = cube_manipulator_1.CubeManipulator.isSolved(scrambledCube);
-            console.log("Scrambled cube is solved: " + scrambledCubeIsSolved);
+            var solvedCube = cube_manipulator_1.CubeManipulator.solve(scrambledCube, true);
+            console.log("Solved cube:");
+            console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(solvedCube));
+            console.log("\r\n");
+            // // test isSolved method
+            // const newCubeIsSolved = CubeManipulator.isSolved(newCube)
+            // console.log(`New cube is solved: ${newCubeIsSolved}`)
+            // const scrambledCubeIsSolved = CubeManipulator.isSolved(scrambledCube)
+            // console.log(`Scrambled cube is solved: ${scrambledCubeIsSolved}`)
             // // test randoms
             // Randomizer.testRandoms(1, 10, 50)
             // // output new (solved) cube

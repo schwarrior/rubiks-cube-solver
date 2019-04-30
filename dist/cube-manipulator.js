@@ -26,8 +26,22 @@ var CubeManipulator = /** @class */ (function () {
         }
         return scube;
     };
-    CubeManipulator.solve = function (scrambledCube) {
-        return scrambledCube;
+    CubeManipulator.solve = function (cube, outputMoves) {
+        var candidateCube = new types_1.Cube(cube);
+        var moveCount = 0;
+        var isSolved = CubeManipulator.isSolved(candidateCube);
+        while (!isSolved) {
+            moveCount++;
+            var rotatorIndex = randomizer_1.Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1);
+            var rotator = CubeManipulator.cubeRotators[rotatorIndex];
+            if (outputMoves) {
+                console.log("Trying move " + moveCount + ": " + rotator.description);
+            }
+            candidateCube = rotator.rotate(candidateCube);
+            isSolved = CubeManipulator.isSolved(candidateCube);
+        }
+        console.log("Solution found in " + moveCount + " moves");
+        return candidateCube;
     };
     CubeManipulator.isSolved = function (candidateCube) {
         var c = candidateCube;

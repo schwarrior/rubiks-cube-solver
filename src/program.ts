@@ -10,18 +10,21 @@ export class Program {
         //create a randomly scrambled cube
         const newCube = new Cube()
         const scrambledCube = CubeManipulator.scramble(newCube)
-        console.log("Scrambled Cube:")
+        console.log("Scrambled cube:")
         console.log(CubePresentor.getConsoleRepresentation(scrambledCube))
         console.log("\r\n")
 
         // solve scrambled cube
-        const solvedCube = CubeManipulator.solve(scrambledCube)
+        const solvedCube = CubeManipulator.solve(scrambledCube, true)
+        console.log("Solved cube:")
+        console.log(CubePresentor.getConsoleRepresentation(solvedCube))
+        console.log("\r\n")
 
-        // test isSolved method
-        const newCubeIsSolved = CubeManipulator.isSolved(newCube)
-        console.log(`New cube is solved: ${newCubeIsSolved}`)
-        const scrambledCubeIsSolved = CubeManipulator.isSolved(scrambledCube)
-        console.log(`Scrambled cube is solved: ${scrambledCubeIsSolved}`)
+        // // test isSolved method
+        // const newCubeIsSolved = CubeManipulator.isSolved(newCube)
+        // console.log(`New cube is solved: ${newCubeIsSolved}`)
+        // const scrambledCubeIsSolved = CubeManipulator.isSolved(scrambledCube)
+        // console.log(`Scrambled cube is solved: ${scrambledCubeIsSolved}`)
 
         // // test randoms
         // Randomizer.testRandoms(1, 10, 50)
