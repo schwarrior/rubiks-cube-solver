@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var cube_1 = require("./cube");
 var cube_rotators_1 = require("./cube-rotators");
 var randomizer_1 = require("./randomizer");
+var cube_presentor_1 = require("./cube-presentor");
 var CubeManipulator = /** @class */ (function () {
     function CubeManipulator() {
     }
@@ -27,17 +28,24 @@ var CubeManipulator = /** @class */ (function () {
         return scube;
     };
     CubeManipulator.solve = function (cube, outputMoves) {
+        CubeManipulator.moveHistory = new Array();
         var candidateCube = new cube_1.Cube(cube);
         var moveCount = 0;
         var isSolved = CubeManipulator.isSolved(candidateCube);
         while (!isSolved) {
-            moveCount++;
             var rotatorIndex = randomizer_1.Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1);
             var rotator = CubeManipulator.cubeRotators[rotatorIndex];
-            if (outputMoves) {
-                console.log("Trying move " + moveCount + ": " + rotator.description);
-            }
             candidateCube = rotator.rotate(candidateCube);
+            var moveId = cube_presentor_1.CubePresentor.removeWhitespace(candidateCube.toString());
+            var dupeMove = (CubeManipulator.moveHistory.indexOf(moveId) > -1);
+            if (dupeMove) {
+                continue;
+            }
+            moveCount++;
+            CubeManipulator.moveHistory.push(moveId);
+            if (outputMoves) {
+                console.log("Move " + moveCount + ": " + rotator.description + " (" + moveId + ")");
+            }
             isSolved = CubeManipulator.isSolved(candidateCube);
         }
         console.log("Solution found in " + moveCount + " moves");

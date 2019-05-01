@@ -1,10 +1,13 @@
 import { Cube } from "./cube";
 import { CubeRotators } from "./cube-rotators"
 import { Randomizer } from "./randomizer";
+import { CubePresentor } from "./cube-presentor";
 
 export class CubeManipulator {
     
     private static cubeRotators = CubeRotators
+
+    private static moveHistory : Array<string>
 
     static rotateOnce = (cube : Cube, rotationIndex : number) => {
         const r = CubeManipulator.cubeRotators[rotationIndex]
@@ -26,15 +29,20 @@ export class CubeManipulator {
     }   
 
     static solve = (cube: Cube, outputMoves? : boolean) : Cube => {
+        CubeManipulator.moveHistory = new Array<string>()
         let candidateCube = new Cube(cube)
         let moveCount = 0
         let isSolved = CubeManipulator.isSolved(candidateCube)
         while (!isSolved) {
-            moveCount ++
             const rotatorIndex = Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1)
             const rotator = CubeManipulator.cubeRotators[rotatorIndex]
-            if (outputMoves) { console.log(`Trying move ${moveCount}: ${rotator.description}`) }
             candidateCube = rotator.rotate(candidateCube)
+            const moveId = CubePresentor.removeWhitespace(candidateCube.toString())
+            const dupeMove : boolean = (CubeManipulator.moveHistory.indexOf(moveId) > -1)
+            if (dupeMove) {continue}
+            moveCount ++
+            CubeManipulator.moveHistory.push(moveId)
+            if (outputMoves) { console.log(`Move ${moveCount}: ${rotator.description} (${moveId})`) }
             isSolved = CubeManipulator.isSolved(candidateCube)
         }
         console.log(`Solution found in ${moveCount} moves`)
