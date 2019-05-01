@@ -134,7 +134,28 @@ var Cube = /** @class */ (function () {
             _this.back.left = Cube.getColor(s[30]);
             _this.back.center = Cube.getColor(s[31]);
             _this.back.right = Cube.getColor(s[32]);
+            _this.left.bottomLeft = Cube.getColor(s[33]);
+            _this.left.bottom = Cube.getColor(s[34]);
+            _this.left.bottomRight = Cube.getColor(s[35]);
+            _this.front.bottomLeft = Cube.getColor(s[36]);
+            _this.front.bottom = Cube.getColor(s[37]);
+            _this.front.bottomRight = Cube.getColor(s[38]);
+            _this.right.bottomLeft = Cube.getColor(s[39]);
+            _this.right.bottom = Cube.getColor(s[40]);
+            _this.right.bottomRight = Cube.getColor(s[41]);
+            _this.back.bottomLeft = Cube.getColor(s[42]);
+            _this.back.bottom = Cube.getColor(s[43]);
+            _this.back.bottomRight = Cube.getColor(s[44]);
             _this.bottom = new types_1.Face();
+            _this.bottom.topLeft = Cube.getColor(s[45]);
+            _this.bottom.top = Cube.getColor(s[46]);
+            _this.bottom.topRight = Cube.getColor(s[47]);
+            _this.bottom.left = Cube.getColor(s[48]);
+            _this.bottom.center = Cube.getColor(s[49]);
+            _this.bottom.right = Cube.getColor(s[50]);
+            _this.bottom.bottomLeft = Cube.getColor(s[51]);
+            _this.bottom.bottom = Cube.getColor(s[52]);
+            _this.bottom.bottomRight = Cube.getColor(s[53]);
         };
         if (!fromCube) {
             this.reset();

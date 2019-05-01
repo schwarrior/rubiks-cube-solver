@@ -174,8 +174,32 @@ export class Cube {
         this.back.center = Cube.getColor(s[31])
         this.back.right = Cube.getColor(s[32])
 
+        this.left.bottomLeft = Cube.getColor(s[33])
+        this.left.bottom = Cube.getColor(s[34])
+        this.left.bottomRight = Cube.getColor(s[35])
+        this.front.bottomLeft = Cube.getColor(s[36])
+        this.front.bottom = Cube.getColor(s[37])
+        this.front.bottomRight = Cube.getColor(s[38])
+        this.right.bottomLeft = Cube.getColor(s[39])
+        this.right.bottom = Cube.getColor(s[40])
+        this.right.bottomRight = Cube.getColor(s[41])
+
+        this.back.bottomLeft = Cube.getColor(s[42])
+        this.back.bottom = Cube.getColor(s[43])
+        this.back.bottomRight = Cube.getColor(s[44])
 
         this.bottom = new Face()
+        this.bottom.topLeft = Cube.getColor(s[45])
+        this.bottom.top = Cube.getColor(s[46])
+        this.bottom.topRight = Cube.getColor(s[47])
+
+        this.bottom.left = Cube.getColor(s[48])
+        this.bottom.center = Cube.getColor(s[49])
+        this.bottom.right = Cube.getColor(s[50])
+        
+        this.bottom.bottomLeft = Cube.getColor(s[51])
+        this.bottom.bottom = Cube.getColor(s[52])
+        this.bottom.bottomRight = Cube.getColor(s[53])
     }
 
     static getColor = (val : string) : Color => {
