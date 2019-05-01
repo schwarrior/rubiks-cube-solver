@@ -9,6 +9,12 @@ export class Program {
 
         //create a randomly scrambled cube
         const newCube = new Cube()
+
+        const decodedNewCube = new Cube(newCube.toString())
+        console.log("Decoded new cube:")
+        console.log(CubePresentor.getConsoleRepresentation(decodedNewCube))
+        console.log("\r\n")
+
         const scrambledCube = CubeManipulator.scramble(newCube)
         console.log("Scrambled cube:")
         console.log(CubePresentor.getConsoleRepresentation(scrambledCube))

@@ -142,10 +142,39 @@ export class Cube {
         this.top.bottom = Cube.getColor(s[7])
         this.top.bottomRight = Cube.getColor(s[8])
 
+        this.left = new Face()
         this.front = new Face()
         this.right = new Face()
         this.back = new Face()
-        this.left = new Face()
+
+        this.left.topLeft = Cube.getColor(s[9])
+        this.left.top = Cube.getColor(s[10])
+        this.left.topRight = Cube.getColor(s[11])
+        this.front.topLeft = Cube.getColor(s[12])
+        this.front.top = Cube.getColor(s[13])
+        this.front.topRight = Cube.getColor(s[14])
+        this.right.topLeft = Cube.getColor(s[15])
+        this.right.top = Cube.getColor(s[16])
+        this.right.topRight = Cube.getColor(s[17])
+        this.back.topLeft = Cube.getColor(s[18])
+        this.back.top = Cube.getColor(s[19])
+        this.back.topRight = Cube.getColor(s[20])
+
+        this.left.left = Cube.getColor(s[21])
+        this.left.center = Cube.getColor(s[22])
+        this.left.right = Cube.getColor(s[23])
+        this.front.left = Cube.getColor(s[24])
+        this.front.center = Cube.getColor(s[25])
+        this.front.right = Cube.getColor(s[26])
+        this.right.left = Cube.getColor(s[27])
+        this.right.center = Cube.getColor(s[28])
+        this.right.right = Cube.getColor(s[29])
+        
+        this.back.left = Cube.getColor(s[30])
+        this.back.center = Cube.getColor(s[31])
+        this.back.right = Cube.getColor(s[32])
+
+
         this.bottom = new Face()
     }
 

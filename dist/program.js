@@ -10,6 +10,10 @@ var Program = /** @class */ (function () {
             console.log("\r\n");
             //create a randomly scrambled cube
             var newCube = new cube_1.Cube();
+            var decodedNewCube = new cube_1.Cube(newCube.toString());
+            console.log("Decoded new cube:");
+            console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(decodedNewCube));
+            console.log("\r\n");
             var scrambledCube = cube_manipulator_1.CubeManipulator.scramble(newCube);
             console.log("Scrambled cube:");
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scrambledCube));
