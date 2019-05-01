@@ -1,4 +1,4 @@
-import { Cube } from "./types";
+import { Cube } from "./cube";
 import { CubeRotators } from "./cube-rotators"
 import { Randomizer } from "./randomizer";
 

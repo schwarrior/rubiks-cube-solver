@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var cube_creator_1 = require("./cube-creator");
 var Color;
 (function (Color) {
     Color["Yellow"] = "Y";
@@ -16,27 +15,6 @@ var Face = /** @class */ (function () {
     return Face;
 }());
 exports.Face = Face;
-var Cube = /** @class */ (function () {
-    function Cube(fromCube) {
-        if (!fromCube) {
-            fromCube = cube_creator_1.CubeCreator.getNewCube();
-        }
-        this.front = new Face();
-        Object.assign(this.front, fromCube.front);
-        this.right = new Face();
-        Object.assign(this.right, fromCube.right);
-        this.back = new Face();
-        Object.assign(this.back, fromCube.back);
-        this.left = new Face();
-        Object.assign(this.left, fromCube.left);
-        this.top = new Face();
-        Object.assign(this.top, fromCube.top);
-        this.bottom = new Face();
-        Object.assign(this.bottom, fromCube.bottom);
-    }
-    return Cube;
-}());
-exports.Cube = Cube;
 // https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
 var ConsoleColorCode;
 (function (ConsoleColorCode) {

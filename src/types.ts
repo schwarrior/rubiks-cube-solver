@@ -1,5 +1,3 @@
-import { CubeCreator } from "./cube-creator";
-
 export enum Color {
     Yellow = "Y",
     Blue = "B",
@@ -19,34 +17,6 @@ export class Face {
     left : Color
     bottomLeft : Color
     center : Color
-}
-
-export class Cube {
-
-    constructor(fromCube? : Cube) {
-        if (!fromCube) { 
-            fromCube = CubeCreator.getNewCube()
-        }
-        this.front = new Face()
-        Object.assign(this.front, fromCube.front)
-        this.right = new Face()
-        Object.assign(this.right, fromCube.right)
-        this.back = new Face()
-        Object.assign(this.back, fromCube.back)
-        this.left = new Face()
-        Object.assign(this.left, fromCube.left)
-        this.top = new Face()
-        Object.assign(this.top, fromCube.top)
-        this.bottom = new Face()
-        Object.assign(this.bottom, fromCube.bottom)
-    }
-
-    front : Face
-    right : Face
-    back : Face
-    left : Face
-    top : Face
-    bottom : Face
 }
 
 // https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color

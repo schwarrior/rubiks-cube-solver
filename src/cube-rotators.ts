@@ -1,4 +1,4 @@
-import { Cube } from "./types";
+import { Cube } from "./cube";
 
 interface CubeRotator {
     description : string

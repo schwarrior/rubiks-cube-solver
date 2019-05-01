@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var types_1 = require("./types");
+var cube_1 = require("./cube");
 //horizontal rotations
 var CubeRotateTopRowClockwise = /** @class */ (function () {
     function CubeRotateTopRowClockwise() {
         this.description = "Rotate top row clockwise";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.topLeft = cube.right.topLeft;
             rCube.front.top = cube.right.top;
             rCube.front.topRight = cube.right.topRight;
@@ -28,7 +28,7 @@ var CubeRotateTopRowCounterclockwise = /** @class */ (function () {
     function CubeRotateTopRowCounterclockwise() {
         this.description = "Rotate top row counterclockwise";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.topLeft = cube.left.topLeft;
             rCube.front.top = cube.left.top;
             rCube.front.topRight = cube.left.topRight;
@@ -50,7 +50,7 @@ var CubeRotateMiddleRowClockwise = /** @class */ (function () {
     function CubeRotateMiddleRowClockwise() {
         this.description = "Rotate middle row clockwise";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.left = cube.right.left;
             rCube.front.center = cube.right.center;
             rCube.front.right = cube.right.right;
@@ -72,7 +72,7 @@ var CubeRotateMiddleRowCounterclockwise = /** @class */ (function () {
     function CubeRotateMiddleRowCounterclockwise() {
         this.description = "Rotate middle row counterclockwise";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.left = cube.left.left;
             rCube.front.center = cube.left.center;
             rCube.front.right = cube.left.right;
@@ -94,7 +94,7 @@ var CubeRotateBottomRowClockwise = /** @class */ (function () {
     function CubeRotateBottomRowClockwise() {
         this.description = "Rotate bottom row clockwise";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.bottomLeft = cube.right.bottomLeft;
             rCube.front.bottom = cube.right.bottom;
             rCube.front.bottomRight = cube.right.bottomRight;
@@ -116,7 +116,7 @@ var CubeRotateBottomRowCounterclockwise = /** @class */ (function () {
     function CubeRotateBottomRowCounterclockwise() {
         this.description = "Rotate bottom row counterclockwise";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.bottomLeft = cube.left.bottomLeft;
             rCube.front.bottom = cube.left.bottom;
             rCube.front.bottomRight = cube.left.bottomRight;
@@ -139,7 +139,7 @@ var CubeRotateLeftColumnClockwiseDown = /** @class */ (function () {
     function CubeRotateLeftColumnClockwiseDown() {
         this.description = "Rotate left column clockwise down";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.topLeft = cube.top.topLeft;
             rCube.front.left = cube.top.left;
             rCube.front.bottomLeft = cube.top.bottomLeft;
@@ -161,7 +161,7 @@ var CubeRotateLeftColumnCounterclockwiseUp = /** @class */ (function () {
     function CubeRotateLeftColumnCounterclockwiseUp() {
         this.description = "Rotate left column counterclockwise up";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.topLeft = cube.bottom.topLeft;
             rCube.front.left = cube.bottom.left;
             rCube.front.bottomLeft = cube.bottom.bottomLeft;
@@ -183,7 +183,7 @@ var CubeRotateCenterColumnClockwiseDown = /** @class */ (function () {
     function CubeRotateCenterColumnClockwiseDown() {
         this.description = "Rotate center column clockwise down";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.top = cube.top.top;
             rCube.front.center = cube.top.center;
             rCube.front.bottom = cube.top.bottom;
@@ -205,7 +205,7 @@ var CubeRotateCenterColumnCounterclockwiseUp = /** @class */ (function () {
     function CubeRotateCenterColumnCounterclockwiseUp() {
         this.description = "Rotate center column counterclockwise up";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.top = cube.bottom.top;
             rCube.front.center = cube.bottom.center;
             rCube.front.bottom = cube.bottom.bottom;
@@ -227,7 +227,7 @@ var CubeRotateRightColumnClockwiseDown = /** @class */ (function () {
     function CubeRotateRightColumnClockwiseDown() {
         this.description = "Rotate right column clockwise down";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.topRight = cube.top.topRight;
             rCube.front.right = cube.top.right;
             rCube.front.bottomRight = cube.top.bottomRight;
@@ -249,7 +249,7 @@ var CubeRotateRightColumnCounterclockwiseUp = /** @class */ (function () {
     function CubeRotateRightColumnCounterclockwiseUp() {
         this.description = "Rotate right column counterclockwise up";
         this.rotate = function (cube) {
-            var rCube = new types_1.Cube(cube);
+            var rCube = new cube_1.Cube(cube);
             rCube.front.topRight = cube.bottom.topRight;
             rCube.front.right = cube.bottom.right;
             rCube.front.bottomRight = cube.bottom.bottomRight;

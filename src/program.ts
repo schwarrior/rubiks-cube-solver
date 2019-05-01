@@ -1,6 +1,6 @@
 import { CubePresentor } from "./cube-presentor";
 import { CubeManipulator } from "./cube-manipulator";
-import { Cube } from "./types";
+import { Cube } from "./cube";
 
 export class Program {
     run = () => {
@@ -14,11 +14,22 @@ export class Program {
         console.log(CubePresentor.getConsoleRepresentation(scrambledCube))
         console.log("\r\n")
 
-        // solve scrambled cube
-        const solvedCube = CubeManipulator.solve(scrambledCube, true)
-        console.log("Solved cube:")
-        console.log(CubePresentor.getConsoleRepresentation(solvedCube))
+        //test parsing cube from string
+        const decodedCube = new Cube(scrambledCube.toString())
+        console.log("Decoded cube:")
+        console.log(CubePresentor.getConsoleRepresentation(decodedCube))
         console.log("\r\n")
+        const revCubeStr = scrambledCube.toString().split("").reverse().join("")
+        const revDecoded = new Cube(revCubeStr.toString())
+        console.log("Reverse decoded cube:")
+        console.log(CubePresentor.getConsoleRepresentation(revDecoded))
+        console.log("\r\n")
+
+        // // solve scrambled cube
+        // const solvedCube = CubeManipulator.solve(scrambledCube, true)
+        // console.log("Solved cube:")
+        // console.log(CubePresentor.getConsoleRepresentation(solvedCube))
+        // console.log("\r\n")
 
         // // test isSolved method
         // const newCubeIsSolved = CubeManipulator.isSolved(newCube)

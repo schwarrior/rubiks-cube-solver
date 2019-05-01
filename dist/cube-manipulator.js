@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var types_1 = require("./types");
+var cube_1 = require("./cube");
 var cube_rotators_1 = require("./cube-rotators");
 var randomizer_1 = require("./randomizer");
 var CubeManipulator = /** @class */ (function () {
@@ -15,7 +15,7 @@ var CubeManipulator = /** @class */ (function () {
     };
     CubeManipulator.scramble = function (cube, outputMoves) {
         var scrambleMoveCount = randomizer_1.Randomizer.getRandomInt(50, 250);
-        var scube = new types_1.Cube(cube);
+        var scube = new cube_1.Cube(cube);
         for (var moveIndex = 0; moveIndex < scrambleMoveCount; moveIndex++) {
             var rotatorIndex = randomizer_1.Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1);
             var rotator = CubeManipulator.cubeRotators[rotatorIndex];
@@ -27,7 +27,7 @@ var CubeManipulator = /** @class */ (function () {
         return scube;
     };
     CubeManipulator.solve = function (cube, outputMoves) {
-        var candidateCube = new types_1.Cube(cube);
+        var candidateCube = new cube_1.Cube(cube);
         var moveCount = 0;
         var isSolved = CubeManipulator.isSolved(candidateCube);
         while (!isSolved) {
