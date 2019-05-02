@@ -35,6 +35,9 @@ export class Cube {
     bottom : Face
 
     private reset = () => {
+
+        //todo consider refactor reset to use importfromstring with solvedcubeid values
+
         const front : Face = {
             bottom : Color.Yellow,
             bottomRight : Color.Yellow,

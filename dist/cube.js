@@ -6,6 +6,7 @@ var Cube = /** @class */ (function () {
     function Cube(fromCube) {
         var _this = this;
         this.reset = function () {
+            //todo consider refactor reset to use importfromstring with solvedcubeid values
             var front = {
                 bottom: types_1.Color.Yellow,
                 bottomRight: types_1.Color.Yellow,

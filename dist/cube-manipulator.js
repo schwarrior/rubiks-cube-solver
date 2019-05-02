@@ -14,8 +14,10 @@ var CubeManipulator = /** @class */ (function () {
         var rCube = r.rotate(cube);
         return rCube;
     };
+    CubeManipulator.minScrambleMoves = 50;
+    CubeManipulator.maxScrambleMoves = 250;
     CubeManipulator.scramble = function (cube, outputMoves) {
-        var scrambleMoveCount = randomizer_1.Randomizer.getRandomInt(50, 250);
+        var scrambleMoveCount = randomizer_1.Randomizer.getRandomInt(CubeManipulator.minScrambleMoves, CubeManipulator.maxScrambleMoves);
         var scube = new cube_1.Cube(cube);
         for (var moveIndex = 0; moveIndex < scrambleMoveCount; moveIndex++) {
             var rotatorIndex = randomizer_1.Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1);

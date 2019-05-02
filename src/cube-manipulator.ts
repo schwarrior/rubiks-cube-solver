@@ -16,8 +16,11 @@ export class CubeManipulator {
         return rCube
     }
 
+    private static minScrambleMoves = 50
+    private static maxScrambleMoves = 250
+
     static scramble = (cube : Cube, outputMoves? : boolean) : Cube => {
-        const scrambleMoveCount = Randomizer.getRandomInt(50, 250)
+        const scrambleMoveCount = Randomizer.getRandomInt(CubeManipulator.minScrambleMoves, CubeManipulator.maxScrambleMoves)
         let scube = new Cube(cube)
         for (let moveIndex = 0; moveIndex < scrambleMoveCount; moveIndex++) {
             const rotatorIndex = Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1)
@@ -34,6 +37,7 @@ export class CubeManipulator {
         let moveCount = 0
         let isSolved = CubeManipulator.isSolved(candidateCube)
         while (!isSolved) {
+            
             const rotatorIndex = Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1)
             const rotator = CubeManipulator.cubeRotators[rotatorIndex]
             candidateCube = rotator.rotate(candidateCube)
