@@ -97,65 +97,65 @@ var Cube = /** @class */ (function () {
             var cleanCubeStr = cube_presentor_1.CubePresentor.removeWhitespace(cubeString);
             var s = cleanCubeStr.split("");
             _this.top = new types_1.Face();
-            _this.top.topLeft = Cube.getColor(s[0]);
-            _this.top.top = Cube.getColor(s[1]);
-            _this.top.topRight = Cube.getColor(s[2]);
-            _this.top.left = Cube.getColor(s[3]);
-            _this.top.center = Cube.getColor(s[4]);
-            _this.top.right = Cube.getColor(s[5]);
-            _this.top.bottomLeft = Cube.getColor(s[6]);
-            _this.top.bottom = Cube.getColor(s[7]);
-            _this.top.bottomRight = Cube.getColor(s[8]);
+            _this.top.topLeft = types_1.EnumUtilities.getColor(s[0]);
+            _this.top.top = types_1.EnumUtilities.getColor(s[1]);
+            _this.top.topRight = types_1.EnumUtilities.getColor(s[2]);
+            _this.top.left = types_1.EnumUtilities.getColor(s[3]);
+            _this.top.center = types_1.EnumUtilities.getColor(s[4]);
+            _this.top.right = types_1.EnumUtilities.getColor(s[5]);
+            _this.top.bottomLeft = types_1.EnumUtilities.getColor(s[6]);
+            _this.top.bottom = types_1.EnumUtilities.getColor(s[7]);
+            _this.top.bottomRight = types_1.EnumUtilities.getColor(s[8]);
             _this.left = new types_1.Face();
             _this.front = new types_1.Face();
             _this.right = new types_1.Face();
             _this.back = new types_1.Face();
-            _this.left.topLeft = Cube.getColor(s[9]);
-            _this.left.top = Cube.getColor(s[10]);
-            _this.left.topRight = Cube.getColor(s[11]);
-            _this.front.topLeft = Cube.getColor(s[12]);
-            _this.front.top = Cube.getColor(s[13]);
-            _this.front.topRight = Cube.getColor(s[14]);
-            _this.right.topLeft = Cube.getColor(s[15]);
-            _this.right.top = Cube.getColor(s[16]);
-            _this.right.topRight = Cube.getColor(s[17]);
-            _this.back.topLeft = Cube.getColor(s[18]);
-            _this.back.top = Cube.getColor(s[19]);
-            _this.back.topRight = Cube.getColor(s[20]);
-            _this.left.left = Cube.getColor(s[21]);
-            _this.left.center = Cube.getColor(s[22]);
-            _this.left.right = Cube.getColor(s[23]);
-            _this.front.left = Cube.getColor(s[24]);
-            _this.front.center = Cube.getColor(s[25]);
-            _this.front.right = Cube.getColor(s[26]);
-            _this.right.left = Cube.getColor(s[27]);
-            _this.right.center = Cube.getColor(s[28]);
-            _this.right.right = Cube.getColor(s[29]);
-            _this.back.left = Cube.getColor(s[30]);
-            _this.back.center = Cube.getColor(s[31]);
-            _this.back.right = Cube.getColor(s[32]);
-            _this.left.bottomLeft = Cube.getColor(s[33]);
-            _this.left.bottom = Cube.getColor(s[34]);
-            _this.left.bottomRight = Cube.getColor(s[35]);
-            _this.front.bottomLeft = Cube.getColor(s[36]);
-            _this.front.bottom = Cube.getColor(s[37]);
-            _this.front.bottomRight = Cube.getColor(s[38]);
-            _this.right.bottomLeft = Cube.getColor(s[39]);
-            _this.right.bottom = Cube.getColor(s[40]);
-            _this.right.bottomRight = Cube.getColor(s[41]);
-            _this.back.bottomLeft = Cube.getColor(s[42]);
-            _this.back.bottom = Cube.getColor(s[43]);
-            _this.back.bottomRight = Cube.getColor(s[44]);
+            _this.left.topLeft = types_1.EnumUtilities.getColor(s[9]);
+            _this.left.top = types_1.EnumUtilities.getColor(s[10]);
+            _this.left.topRight = types_1.EnumUtilities.getColor(s[11]);
+            _this.front.topLeft = types_1.EnumUtilities.getColor(s[12]);
+            _this.front.top = types_1.EnumUtilities.getColor(s[13]);
+            _this.front.topRight = types_1.EnumUtilities.getColor(s[14]);
+            _this.right.topLeft = types_1.EnumUtilities.getColor(s[15]);
+            _this.right.top = types_1.EnumUtilities.getColor(s[16]);
+            _this.right.topRight = types_1.EnumUtilities.getColor(s[17]);
+            _this.back.topLeft = types_1.EnumUtilities.getColor(s[18]);
+            _this.back.top = types_1.EnumUtilities.getColor(s[19]);
+            _this.back.topRight = types_1.EnumUtilities.getColor(s[20]);
+            _this.left.left = types_1.EnumUtilities.getColor(s[21]);
+            _this.left.center = types_1.EnumUtilities.getColor(s[22]);
+            _this.left.right = types_1.EnumUtilities.getColor(s[23]);
+            _this.front.left = types_1.EnumUtilities.getColor(s[24]);
+            _this.front.center = types_1.EnumUtilities.getColor(s[25]);
+            _this.front.right = types_1.EnumUtilities.getColor(s[26]);
+            _this.right.left = types_1.EnumUtilities.getColor(s[27]);
+            _this.right.center = types_1.EnumUtilities.getColor(s[28]);
+            _this.right.right = types_1.EnumUtilities.getColor(s[29]);
+            _this.back.left = types_1.EnumUtilities.getColor(s[30]);
+            _this.back.center = types_1.EnumUtilities.getColor(s[31]);
+            _this.back.right = types_1.EnumUtilities.getColor(s[32]);
+            _this.left.bottomLeft = types_1.EnumUtilities.getColor(s[33]);
+            _this.left.bottom = types_1.EnumUtilities.getColor(s[34]);
+            _this.left.bottomRight = types_1.EnumUtilities.getColor(s[35]);
+            _this.front.bottomLeft = types_1.EnumUtilities.getColor(s[36]);
+            _this.front.bottom = types_1.EnumUtilities.getColor(s[37]);
+            _this.front.bottomRight = types_1.EnumUtilities.getColor(s[38]);
+            _this.right.bottomLeft = types_1.EnumUtilities.getColor(s[39]);
+            _this.right.bottom = types_1.EnumUtilities.getColor(s[40]);
+            _this.right.bottomRight = types_1.EnumUtilities.getColor(s[41]);
+            _this.back.bottomLeft = types_1.EnumUtilities.getColor(s[42]);
+            _this.back.bottom = types_1.EnumUtilities.getColor(s[43]);
+            _this.back.bottomRight = types_1.EnumUtilities.getColor(s[44]);
             _this.bottom = new types_1.Face();
-            _this.bottom.topLeft = Cube.getColor(s[45]);
-            _this.bottom.top = Cube.getColor(s[46]);
-            _this.bottom.topRight = Cube.getColor(s[47]);
-            _this.bottom.left = Cube.getColor(s[48]);
-            _this.bottom.center = Cube.getColor(s[49]);
-            _this.bottom.right = Cube.getColor(s[50]);
-            _this.bottom.bottomLeft = Cube.getColor(s[51]);
-            _this.bottom.bottom = Cube.getColor(s[52]);
-            _this.bottom.bottomRight = Cube.getColor(s[53]);
+            _this.bottom.topLeft = types_1.EnumUtilities.getColor(s[45]);
+            _this.bottom.top = types_1.EnumUtilities.getColor(s[46]);
+            _this.bottom.topRight = types_1.EnumUtilities.getColor(s[47]);
+            _this.bottom.left = types_1.EnumUtilities.getColor(s[48]);
+            _this.bottom.center = types_1.EnumUtilities.getColor(s[49]);
+            _this.bottom.right = types_1.EnumUtilities.getColor(s[50]);
+            _this.bottom.bottomLeft = types_1.EnumUtilities.getColor(s[51]);
+            _this.bottom.bottom = types_1.EnumUtilities.getColor(s[52]);
+            _this.bottom.bottomRight = types_1.EnumUtilities.getColor(s[53]);
         };
         if (!fromCube) {
             this.reset();
@@ -179,27 +179,16 @@ var Cube = /** @class */ (function () {
         //its a string represenation
         this.importFromString(fromCube);
     }
-    Cube.getColor = function (val) {
-        if (val === types_1.Color.Blue) {
-            return types_1.Color.Blue;
-        }
-        if (val === types_1.Color.Green) {
-            return types_1.Color.Green;
-        }
-        if (val === types_1.Color.Orange) {
-            return types_1.Color.Orange;
-        }
-        if (val === types_1.Color.Red) {
-            return types_1.Color.Red;
-        }
-        if (val === types_1.Color.White) {
-            return types_1.Color.White;
-        }
-        if (val === types_1.Color.Yellow) {
-            return types_1.Color.Yellow;
-        }
-        throw new Error("Could not parse Color from value '" + val + "'");
-    };
+    Cube.solvedCubeId = "   RRR" +
+        "   RRR" +
+        "   RRR" +
+        "GGGYYYBBB  WWW" +
+        "GGGYYYBBB  WWW" +
+        "GGGYYYBBB  WWW" +
+        "   OOO" +
+        "   OOO" +
+        "   OOO";
+    Cube.solvedCubeIdTerse = "RRRRRRRRRGGGYYYBBBWWWGGGYYYBBBWWWGGGYYYBBBWWWOOOOOOOOO";
     return Cube;
 }());
 exports.Cube = Cube;

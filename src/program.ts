@@ -7,8 +7,10 @@ export class Program {
         console.log("Rubik's Cube Solver")
         console.log("\r\n")
 
-        //create a randomly scrambled cube
+        //create a new  cube
         const newCube = new Cube()
+ 
+        // create scrambled cube
         const scrambledCube = CubeManipulator.scramble(newCube)
         console.log("Scrambled cube:")
         console.log(CubePresentor.getConsoleRepresentation(scrambledCube))

@@ -1,4 +1,11 @@
 
+// //create a new  cube
+// const newCube = new Cube()
+// console.log("New cube:")
+// console.log(newCube.toString())
+// console.log("\r\n")
+// console.log(CubePresentor.removeWhitespace(newCube.toString()))
+
         // //test parsing cube from string
         // const decodedNewCube = new Cube(newCube.toString())
         // console.log("Decoded new cube:")

@@ -8,8 +8,9 @@ var Program = /** @class */ (function () {
         this.run = function () {
             console.log("Rubik's Cube Solver");
             console.log("\r\n");
-            //create a randomly scrambled cube
+            //create a new  cube
             var newCube = new cube_1.Cube();
+            // create scrambled cube
             var scrambledCube = cube_manipulator_1.CubeManipulator.scramble(newCube);
             console.log("Scrambled cube:");
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scrambledCube));

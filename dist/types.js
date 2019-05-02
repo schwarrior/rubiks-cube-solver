@@ -9,6 +9,33 @@ var Color;
     Color["Red"] = "R";
     Color["Orange"] = "O";
 })(Color = exports.Color || (exports.Color = {}));
+var EnumUtilities = /** @class */ (function () {
+    function EnumUtilities() {
+    }
+    EnumUtilities.getColor = function (val) {
+        if (val === Color.Blue) {
+            return Color.Blue;
+        }
+        if (val === Color.Green) {
+            return Color.Green;
+        }
+        if (val === Color.Orange) {
+            return Color.Orange;
+        }
+        if (val === Color.Red) {
+            return Color.Red;
+        }
+        if (val === Color.White) {
+            return Color.White;
+        }
+        if (val === Color.Yellow) {
+            return Color.Yellow;
+        }
+        throw new Error("Could not parse Color from value '" + val + "'");
+    };
+    return EnumUtilities;
+}());
+exports.EnumUtilities = EnumUtilities;
 var Face = /** @class */ (function () {
     function Face() {
     }
