@@ -1,5 +1,5 @@
 import { Cube } from "./cube";
-import { CubeRotators } from "./cube-rotators"
+import { CubeRotators, CubeRotator } from "./cube-rotators"
 import { Randomizer } from "./randomizer";
 import { CubePresentor } from "./cube-presentor";
 
@@ -38,6 +38,9 @@ export class CubeManipulator {
         let isSolved = CubeManipulator.isSolved(candidateCube)
         while (!isSolved) {
             
+            const moveEvalArray = CubeManipulator.getMoveEvaluationArray()
+            //todo resume here
+
             const rotatorIndex = Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1)
             const rotator = CubeManipulator.cubeRotators[rotatorIndex]
             candidateCube = rotator.rotate(candidateCube)
@@ -86,4 +89,27 @@ export class CubeManipulator {
         return true
     }
 
+    private static getMoveEvaluationArray = () : Array<MoveEvaluation> => {
+        const mevs = new Array<MoveEvaluation>(CubeManipulator.cubeRotators.length)
+        CubeManipulator.cubeRotators.forEach( (rotator : CubeRotator) => {
+            const mev : MoveEvaluation = {
+                cubeId: null,
+                rotator : rotator,
+                isSolved: null,
+                solutionScore: null,
+                isDupe: null
+            }
+            mevs.push(mev)    
+        })
+        return mevs
+    }
+
+}
+
+class MoveEvaluation {
+    cubeId : string
+    rotator : CubeRotator
+    isSolved : boolean
+    solutionScore : number
+    isDupe : boolean
 }

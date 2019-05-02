@@ -35,6 +35,8 @@ var CubeManipulator = /** @class */ (function () {
         var moveCount = 0;
         var isSolved = CubeManipulator.isSolved(candidateCube);
         while (!isSolved) {
+            var moveEvalArray = CubeManipulator.getMoveEvaluationArray();
+            //todo resume here
             var rotatorIndex = randomizer_1.Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1);
             var rotator = CubeManipulator.cubeRotators[rotatorIndex];
             candidateCube = rotator.rotate(candidateCube);
@@ -129,7 +131,26 @@ var CubeManipulator = /** @class */ (function () {
         }
         return true;
     };
+    CubeManipulator.getMoveEvaluationArray = function () {
+        var mevs = new Array(CubeManipulator.cubeRotators.length);
+        CubeManipulator.cubeRotators.forEach(function (rotator) {
+            var mev = {
+                cubeId: null,
+                rotator: rotator,
+                isSolved: null,
+                solutionScore: null,
+                isDupe: null
+            };
+            mevs.push(mev);
+        });
+        return mevs;
+    };
     return CubeManipulator;
 }());
 exports.CubeManipulator = CubeManipulator;
+var MoveEvaluation = /** @class */ (function () {
+    function MoveEvaluation() {
+    }
+    return MoveEvaluation;
+}());
 //# sourceMappingURL=cube-manipulator.js.map

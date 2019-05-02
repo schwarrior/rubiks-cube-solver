@@ -1,6 +1,6 @@
 import { Cube } from "./cube";
 
-interface CubeRotator {
+export interface CubeRotator {
     description : string
     rotate (cube : Cube) : Cube 
 }
