@@ -9,7 +9,7 @@ export class Program {
 
         //create a new  cube
         const newCube = new Cube()
- 
+
         // create scrambled cube
         const scrambledCube = CubeManipulator.scramble(newCube)
         console.log("Scrambled cube:")

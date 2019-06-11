@@ -33,73 +33,45 @@ export class CubeManipulator {
 
     static solve = (cube: Cube, outputMoves? : boolean) : Cube => {
         CubeManipulator.moveHistory = new Array<string>()
-        const topScoringCube = new MoveEvaluation()
+        let topScoringCube = new MoveEvaluation()
         topScoringCube.cubeId = CubePresentor.removeWhitespace(cube.toString())
         topScoringCube.solutionScore = CubeManipulator.getSolutionScore(cube)
         let moveCount = 0
         while (topScoringCube.solutionScore < CubeManipulator.solvedScore) {   
             const fromCube = new Cube(topScoringCube.cubeId)
             const moveEvalArray = CubeManipulator.getMoveEvaluationArray()
-            let topScoringMove = moveEvalArray[0]
             //make every possible move and place into move array
             for (let moveIndex = 0; moveIndex < moveEvalArray.length; moveIndex ++) {
                 const move = moveEvalArray[moveIndex]
                 const moveCube = move.rotator.rotate(fromCube)
                 move.cubeId = CubePresentor.removeWhitespace(moveCube.toString())
                 move.isDupe = (CubeManipulator.moveHistory.indexOf(move.cubeId) > -1)
-                if (move.isDupe) {continue}
-                if (topScoringCube.cubeId === CubePresentor.removeWhitespace(fromCube.toString())) {
-                    topScoringCube.cubeId = move.cubeId
+                if (move.isDupe) {
+                    move.solutionScore = -1
+                    continue
                 }
                 move.solutionScore = CubeManipulator.getSolutionScore(moveCube)
-                if (move.solutionScore > topScoringMove.solutionScore) {topScoringMove = move}
             }
+            //evaluate moves
+            let selectedMove = moveEvalArray[0]
+            for (let moveIndex = 0; moveIndex < moveEvalArray.length; moveIndex ++) {
+                const move = moveEvalArray[moveIndex]
+                if (move.solutionScore > selectedMove.solutionScore) {selectedMove = move}
+            }
+            topScoringCube = selectedMove
             moveCount ++
-            CubeManipulator.moveHistory.push(topScoringMove.cubeId)
+            CubeManipulator.moveHistory.push(topScoringCube.cubeId)
             // tslint:disable-next-line:max-line-length
-            if (outputMoves) { console.log(`Move ${moveCount}: scoring ${topScoringMove.solutionScore} with ${topScoringMove.rotator.description} (${topScoringMove.cubeId})`) }
+            if (outputMoves) { console.log(`Move ${moveCount}: scoring ${topScoringCube.solutionScore} with ${topScoringCube.rotator.description} (${topScoringCube.cubeId})`) }
         }
         console.log(`Solution found in ${moveCount} moves`)
         const solvedCube = new Cube(topScoringCube.cubeId)
         return solvedCube
     }
 
-    // static isSolved = (candidateCube : Cube) : boolean => {
-    //     const c = candidateCube
-        
-    //     if (c.front.center !== c.front.topLeft) {return false}
-    //     if (c.front.center !== c.front.top) {return false}
-    //     if (c.front.center !== c.front.topRight) {return false}
-    //     if (c.front.center !== c.front.left) {return false}
-    //     if (c.front.center !== c.front.right) {return false}
-    //     if (c.front.center !== c.front.bottomLeft) {return false}
-    //     if (c.front.center !== c.front.bottom) {return false}
-    //     if (c.front.center !== c.front.bottomRight) {return false}
+    static solvedScore = 24
 
-    //     if (c.top.center !== c.top.topLeft) {return false}
-    //     if (c.top.center !== c.top.top) {return false}
-    //     if (c.top.center !== c.top.topRight) {return false}
-    //     if (c.top.center !== c.top.left) {return false}
-    //     if (c.top.center !== c.top.right) {return false}
-    //     if (c.top.center !== c.top.bottomLeft) {return false}
-    //     if (c.top.center !== c.top.bottom) {return false}
-    //     if (c.top.center !== c.top.bottomRight) {return false}
-
-    //     if (c.right.center !== c.right.topLeft) {return false}
-    //     if (c.right.center !== c.right.top) {return false}
-    //     if (c.right.center !== c.right.topRight) {return false}
-    //     if (c.right.center !== c.right.left) {return false}
-    //     if (c.right.center !== c.right.right) {return false}
-    //     if (c.right.center !== c.right.bottomLeft) {return false}
-    //     if (c.right.center !== c.right.bottom) {return false}
-    //     if (c.right.center !== c.right.bottomRight) {return false}
-
-    //     return true
-    // }
-
-    private static solvedScore = 24
-
-    private static getSolutionScore(moveCube: Cube): number {
+    static getSolutionScore(moveCube: Cube): number {
         const c = moveCube
         let score = 0
 

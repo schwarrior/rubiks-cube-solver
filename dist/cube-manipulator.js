@@ -115,7 +115,6 @@ var CubeManipulator = /** @class */ (function () {
         while (topScoringCube.solutionScore < CubeManipulator.solvedScore) {
             var fromCube = new cube_1.Cube(topScoringCube.cubeId);
             var moveEvalArray = CubeManipulator.getMoveEvaluationArray();
-            var topScoringMove = moveEvalArray[0];
             //make every possible move and place into move array
             for (var moveIndex = 0; moveIndex < moveEvalArray.length; moveIndex++) {
                 var move = moveEvalArray[moveIndex];
@@ -123,55 +122,31 @@ var CubeManipulator = /** @class */ (function () {
                 move.cubeId = cube_presentor_1.CubePresentor.removeWhitespace(moveCube.toString());
                 move.isDupe = (CubeManipulator.moveHistory.indexOf(move.cubeId) > -1);
                 if (move.isDupe) {
+                    move.solutionScore = -1;
                     continue;
                 }
-                if (topScoringCube.cubeId === cube_presentor_1.CubePresentor.removeWhitespace(fromCube.toString())) {
-                    topScoringCube.cubeId = move.cubeId;
-                }
                 move.solutionScore = CubeManipulator.getSolutionScore(moveCube);
-                if (move.solutionScore > topScoringMove.solutionScore) {
-                    topScoringMove = move;
+            }
+            //evaluate moves
+            var selectedMove = moveEvalArray[0];
+            for (var moveIndex = 0; moveIndex < moveEvalArray.length; moveIndex++) {
+                var move = moveEvalArray[moveIndex];
+                if (move.solutionScore > selectedMove.solutionScore) {
+                    selectedMove = move;
                 }
             }
+            topScoringCube = selectedMove;
             moveCount++;
-            CubeManipulator.moveHistory.push(topScoringMove.cubeId);
+            CubeManipulator.moveHistory.push(topScoringCube.cubeId);
             // tslint:disable-next-line:max-line-length
             if (outputMoves) {
-                console.log("Move " + moveCount + ": scoring " + topScoringMove.solutionScore + " with " + topScoringMove.rotator.description + " (" + topScoringMove.cubeId + ")");
+                console.log("Move " + moveCount + ": scoring " + topScoringCube.solutionScore + " with " + topScoringCube.rotator.description + " (" + topScoringCube.cubeId + ")");
             }
         }
         console.log("Solution found in " + moveCount + " moves");
         var solvedCube = new cube_1.Cube(topScoringCube.cubeId);
         return solvedCube;
     };
-    // static isSolved = (candidateCube : Cube) : boolean => {
-    //     const c = candidateCube
-    //     if (c.front.center !== c.front.topLeft) {return false}
-    //     if (c.front.center !== c.front.top) {return false}
-    //     if (c.front.center !== c.front.topRight) {return false}
-    //     if (c.front.center !== c.front.left) {return false}
-    //     if (c.front.center !== c.front.right) {return false}
-    //     if (c.front.center !== c.front.bottomLeft) {return false}
-    //     if (c.front.center !== c.front.bottom) {return false}
-    //     if (c.front.center !== c.front.bottomRight) {return false}
-    //     if (c.top.center !== c.top.topLeft) {return false}
-    //     if (c.top.center !== c.top.top) {return false}
-    //     if (c.top.center !== c.top.topRight) {return false}
-    //     if (c.top.center !== c.top.left) {return false}
-    //     if (c.top.center !== c.top.right) {return false}
-    //     if (c.top.center !== c.top.bottomLeft) {return false}
-    //     if (c.top.center !== c.top.bottom) {return false}
-    //     if (c.top.center !== c.top.bottomRight) {return false}
-    //     if (c.right.center !== c.right.topLeft) {return false}
-    //     if (c.right.center !== c.right.top) {return false}
-    //     if (c.right.center !== c.right.topRight) {return false}
-    //     if (c.right.center !== c.right.left) {return false}
-    //     if (c.right.center !== c.right.right) {return false}
-    //     if (c.right.center !== c.right.bottomLeft) {return false}
-    //     if (c.right.center !== c.right.bottom) {return false}
-    //     if (c.right.center !== c.right.bottomRight) {return false}
-    //     return true
-    // }
     CubeManipulator.solvedScore = 24;
     CubeManipulator.getMoveEvaluationArray = function () {
         var mevs = new Array();
