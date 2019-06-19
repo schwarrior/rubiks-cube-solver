@@ -22,8 +22,10 @@ var CubePresentor = /** @class */ (function () {
     CubePresentor.colorize = function (src) {
         src = src.split("R").join(types_1.ConsoleColorCode.BgRed + "R" + types_1.ConsoleColorCode.Reset);
         src = src.split("G").join(types_1.ConsoleColorCode.BgGreen + "G" + types_1.ConsoleColorCode.Reset);
+        //bug: in Powershell yellow presenting as white on white
         src = src.split("Y").join(types_1.ConsoleColorCode.BgYellow + "Y" + types_1.ConsoleColorCode.Reset);
         src = src.split("B").join(types_1.ConsoleColorCode.BgBlue + "B" + types_1.ConsoleColorCode.Reset);
+        //bug: in Powershell orange presenting as orange on white (instead of orange on red)
         src = src.split("O").join("" + types_1.ConsoleColorCode.BgYellow + types_1.ConsoleColorCode.FgRed + "O" + types_1.ConsoleColorCode.Reset);
         src = src.split("W").join("" + types_1.ConsoleColorCode.BgWhite + types_1.ConsoleColorCode.FgBlack + "W" + types_1.ConsoleColorCode.Reset);
         return src;
