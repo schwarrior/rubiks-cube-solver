@@ -2,6 +2,7 @@ import { Cube } from "./cube";
 import { CubeRotators, CubeRotator } from "./cube-rotators"
 import { Randomizer } from "./randomizer";
 import { CubePresentor } from "./cube-presentor";
+import { SettingManager } from "./setting-manager";
 
 export class CubeManipulator {
         
@@ -16,22 +17,25 @@ export class CubeManipulator {
         return rCube
     }
 
-    private static minScrambleMoves = 50
-    private static maxScrambleMoves = 250
-
-    static scramble = (cube : Cube, outputMoves? : boolean) : Cube => {
-        const scrambleMoveCount = Randomizer.getRandomInt(CubeManipulator.minScrambleMoves, CubeManipulator.maxScrambleMoves)
+    static scramble = (cube : Cube) : Cube => {
+        const minscrablemoves = parseInt(SettingManager.getSetting("minscrablemoves"), 10)
+        const maxscrablemoves = parseInt(SettingManager.getSetting("maxscrablemoves"), 10)
+        const scrambleMoveCount = Randomizer.getRandomInt(minscrablemoves, maxscrablemoves)
+        console.log(`Creating scrambled cube with ${scrambleMoveCount} random moves`)
         let scube = new Cube(cube)
         for (let moveIndex = 0; moveIndex < scrambleMoveCount; moveIndex++) {
             const rotatorIndex = Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1)
             const rotator = CubeManipulator.cubeRotators[rotatorIndex]
-            if (outputMoves) { console.log(`Scramble move ${moveIndex + 1} of ${scrambleMoveCount}: ${rotator.description}`) }
+            //if (outputMoves) { console.log(`Scramble move ${moveIndex + 1} of ${scrambleMoveCount}: ${rotator.description}`) }
             scube = rotator.rotate(scube)
         }
         return scube
     }   
 
-    static solve = (cube: Cube, outputMoves? : boolean) : Cube => {
+    static solve = (cube: Cube) : Cube => {
+        const outputmovemodulus = parseInt(SettingManager.getSetting("outputmovemodulus"), 10)
+        const outputformattedcube = (SettingManager.getSetting("outputformattedcube").toLowerCase() === "true")
+        console.log(`Begin solving cube (status every ${outputmovemodulus} moves)`)
         CubeManipulator.moveHistory = new Array<string>()
         let topScoringCube = new MoveEvaluation()
         topScoringCube.cubeId = CubePresentor.removeWhitespace(cube.toString())
@@ -62,7 +66,13 @@ export class CubeManipulator {
             moveCount ++
             CubeManipulator.moveHistory.push(topScoringCube.cubeId)
             // tslint:disable-next-line:max-line-length
-            if (outputMoves) { console.log(`Move ${moveCount}: scoring ${topScoringCube.solutionScore} with ${topScoringCube.rotator.description} (${topScoringCube.cubeId})`) }
+            if (moveCount % outputmovemodulus === 0) { 
+                console.log(`Move ${moveCount}: scoring ${topScoringCube.solutionScore} with ${topScoringCube.rotator.description}`)
+                if (outputformattedcube) {
+                    const tempCube = new Cube(topScoringCube.cubeId)
+                    console.log(CubePresentor.getConsoleRepresentation(tempCube))
+                } else {console.log(topScoringCube.cubeId)}
+            }
         }
         console.log(`Solution found in ${moveCount} moves`)
         const solvedCube = new Cube(topScoringCube.cubeId)

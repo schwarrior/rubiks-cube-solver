@@ -17,7 +17,7 @@ export class Program {
         console.log("\r\n")
 
         // solve scrambled cube
-        const solvedCube = CubeManipulator.solve(scrambledCube, true)
+        const solvedCube = CubeManipulator.solve(scrambledCube)
         console.log("Solved cube:")
         console.log(CubePresentor.getConsoleRepresentation(solvedCube))
         console.log("\r\n")

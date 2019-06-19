@@ -4,7 +4,7 @@ var cube_1 = require("./cube");
 //horizontal rotations
 var CubeRotateTopRowClockwise = /** @class */ (function () {
     function CubeRotateTopRowClockwise() {
-        this.description = "Rotate top row clockwise";
+        this.description = "rotate top row clockwise";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.topLeft = cube.right.topLeft;
@@ -26,7 +26,7 @@ var CubeRotateTopRowClockwise = /** @class */ (function () {
 }());
 var CubeRotateTopRowCounterclockwise = /** @class */ (function () {
     function CubeRotateTopRowCounterclockwise() {
-        this.description = "Rotate top row counterclockwise";
+        this.description = "rotate top row counterclockwise";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.topLeft = cube.left.topLeft;
@@ -48,7 +48,7 @@ var CubeRotateTopRowCounterclockwise = /** @class */ (function () {
 }());
 var CubeRotateMiddleRowClockwise = /** @class */ (function () {
     function CubeRotateMiddleRowClockwise() {
-        this.description = "Rotate middle row clockwise";
+        this.description = "rotate middle row clockwise";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.left = cube.right.left;
@@ -70,7 +70,7 @@ var CubeRotateMiddleRowClockwise = /** @class */ (function () {
 }());
 var CubeRotateMiddleRowCounterclockwise = /** @class */ (function () {
     function CubeRotateMiddleRowCounterclockwise() {
-        this.description = "Rotate middle row counterclockwise";
+        this.description = "rotate middle row counterclockwise";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.left = cube.left.left;
@@ -92,7 +92,7 @@ var CubeRotateMiddleRowCounterclockwise = /** @class */ (function () {
 }());
 var CubeRotateBottomRowClockwise = /** @class */ (function () {
     function CubeRotateBottomRowClockwise() {
-        this.description = "Rotate bottom row clockwise";
+        this.description = "rotate bottom row clockwise";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.bottomLeft = cube.right.bottomLeft;
@@ -114,7 +114,7 @@ var CubeRotateBottomRowClockwise = /** @class */ (function () {
 }());
 var CubeRotateBottomRowCounterclockwise = /** @class */ (function () {
     function CubeRotateBottomRowCounterclockwise() {
-        this.description = "Rotate bottom row counterclockwise";
+        this.description = "rotate bottom row counterclockwise";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.bottomLeft = cube.left.bottomLeft;
@@ -137,7 +137,7 @@ var CubeRotateBottomRowCounterclockwise = /** @class */ (function () {
 //vertical rotations
 var CubeRotateLeftColumnClockwiseDown = /** @class */ (function () {
     function CubeRotateLeftColumnClockwiseDown() {
-        this.description = "Rotate left column clockwise down";
+        this.description = "rotate left column clockwise down";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.topLeft = cube.top.topLeft;
@@ -159,7 +159,7 @@ var CubeRotateLeftColumnClockwiseDown = /** @class */ (function () {
 }());
 var CubeRotateLeftColumnCounterclockwiseUp = /** @class */ (function () {
     function CubeRotateLeftColumnCounterclockwiseUp() {
-        this.description = "Rotate left column counterclockwise up";
+        this.description = "rotate left column counterclockwise up";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.topLeft = cube.bottom.topLeft;
@@ -181,7 +181,7 @@ var CubeRotateLeftColumnCounterclockwiseUp = /** @class */ (function () {
 }());
 var CubeRotateCenterColumnClockwiseDown = /** @class */ (function () {
     function CubeRotateCenterColumnClockwiseDown() {
-        this.description = "Rotate center column clockwise down";
+        this.description = "rotate center column clockwise down";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.top = cube.top.top;
@@ -203,7 +203,7 @@ var CubeRotateCenterColumnClockwiseDown = /** @class */ (function () {
 }());
 var CubeRotateCenterColumnCounterclockwiseUp = /** @class */ (function () {
     function CubeRotateCenterColumnCounterclockwiseUp() {
-        this.description = "Rotate center column counterclockwise up";
+        this.description = "rotate center column counterclockwise up";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.top = cube.bottom.top;
@@ -225,7 +225,7 @@ var CubeRotateCenterColumnCounterclockwiseUp = /** @class */ (function () {
 }());
 var CubeRotateRightColumnClockwiseDown = /** @class */ (function () {
     function CubeRotateRightColumnClockwiseDown() {
-        this.description = "Rotate right column clockwise down";
+        this.description = "rotate right column clockwise down";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.topRight = cube.top.topRight;
@@ -247,7 +247,7 @@ var CubeRotateRightColumnClockwiseDown = /** @class */ (function () {
 }());
 var CubeRotateRightColumnCounterclockwiseUp = /** @class */ (function () {
     function CubeRotateRightColumnCounterclockwiseUp() {
-        this.description = "Rotate right column counterclockwise up";
+        this.description = "rotate right column counterclockwise up";
         this.rotate = function (cube) {
             var rCube = new cube_1.Cube(cube);
             rCube.front.topRight = cube.bottom.topRight;

@@ -16,7 +16,7 @@ var Program = /** @class */ (function () {
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(scrambledCube));
             console.log("\r\n");
             // solve scrambled cube
-            var solvedCube = cube_manipulator_1.CubeManipulator.solve(scrambledCube, true);
+            var solvedCube = cube_manipulator_1.CubeManipulator.solve(scrambledCube);
             console.log("Solved cube:");
             console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(solvedCube));
             console.log("\r\n");

@@ -8,7 +8,7 @@ export interface CubeRotator {
 //horizontal rotations
 
 class CubeRotateTopRowClockwise implements CubeRotator {
-    description = "Rotate top row clockwise"
+    description = "rotate top row clockwise"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -33,7 +33,7 @@ class CubeRotateTopRowClockwise implements CubeRotator {
 }
 
 class CubeRotateTopRowCounterclockwise implements CubeRotator {
-    description = "Rotate top row counterclockwise"
+    description = "rotate top row counterclockwise"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -58,7 +58,7 @@ class CubeRotateTopRowCounterclockwise implements CubeRotator {
 }
 
 class CubeRotateMiddleRowClockwise implements CubeRotator {
-    description = "Rotate middle row clockwise"
+    description = "rotate middle row clockwise"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -83,7 +83,7 @@ class CubeRotateMiddleRowClockwise implements CubeRotator {
 }
 
 class CubeRotateMiddleRowCounterclockwise implements CubeRotator {
-    description = "Rotate middle row counterclockwise"
+    description = "rotate middle row counterclockwise"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -108,7 +108,7 @@ class CubeRotateMiddleRowCounterclockwise implements CubeRotator {
 }
 
 class CubeRotateBottomRowClockwise implements CubeRotator {
-    description = "Rotate bottom row clockwise"
+    description = "rotate bottom row clockwise"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -133,7 +133,7 @@ class CubeRotateBottomRowClockwise implements CubeRotator {
 }
 
 class CubeRotateBottomRowCounterclockwise implements CubeRotator {
-    description = "Rotate bottom row counterclockwise"
+    description = "rotate bottom row counterclockwise"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -160,7 +160,7 @@ class CubeRotateBottomRowCounterclockwise implements CubeRotator {
 //vertical rotations
 
 class CubeRotateLeftColumnClockwiseDown implements CubeRotator {
-    description = "Rotate left column clockwise down"
+    description = "rotate left column clockwise down"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -185,7 +185,7 @@ class CubeRotateLeftColumnClockwiseDown implements CubeRotator {
 }
 
 class CubeRotateLeftColumnCounterclockwiseUp implements CubeRotator {
-    description = "Rotate left column counterclockwise up"
+    description = "rotate left column counterclockwise up"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -210,7 +210,7 @@ class CubeRotateLeftColumnCounterclockwiseUp implements CubeRotator {
 }
 
 class CubeRotateCenterColumnClockwiseDown implements CubeRotator {
-    description = "Rotate center column clockwise down"
+    description = "rotate center column clockwise down"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -235,7 +235,7 @@ class CubeRotateCenterColumnClockwiseDown implements CubeRotator {
 }
 
 class CubeRotateCenterColumnCounterclockwiseUp implements CubeRotator {
-    description = "Rotate center column counterclockwise up"
+    description = "rotate center column counterclockwise up"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -260,7 +260,7 @@ class CubeRotateCenterColumnCounterclockwiseUp implements CubeRotator {
 }
 
 class CubeRotateRightColumnClockwiseDown implements CubeRotator {
-    description = "Rotate right column clockwise down"
+    description = "rotate right column clockwise down"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 
@@ -285,7 +285,7 @@ class CubeRotateRightColumnClockwiseDown implements CubeRotator {
 }
 
 class CubeRotateRightColumnCounterclockwiseUp implements CubeRotator {
-    description = "Rotate right column counterclockwise up"
+    description = "rotate right column counterclockwise up"
     rotate = (cube : Cube) : Cube => {
         const rCube = new Cube(cube)
 

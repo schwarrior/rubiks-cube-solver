@@ -4,6 +4,7 @@ var cube_1 = require("./cube");
 var cube_rotators_1 = require("./cube-rotators");
 var randomizer_1 = require("./randomizer");
 var cube_presentor_1 = require("./cube-presentor");
+var setting_manager_1 = require("./setting-manager");
 var CubeManipulator = /** @class */ (function () {
     function CubeManipulator() {
     }
@@ -91,22 +92,24 @@ var CubeManipulator = /** @class */ (function () {
         var rCube = r.rotate(cube);
         return rCube;
     };
-    CubeManipulator.minScrambleMoves = 50;
-    CubeManipulator.maxScrambleMoves = 250;
-    CubeManipulator.scramble = function (cube, outputMoves) {
-        var scrambleMoveCount = randomizer_1.Randomizer.getRandomInt(CubeManipulator.minScrambleMoves, CubeManipulator.maxScrambleMoves);
+    CubeManipulator.scramble = function (cube) {
+        var minscrablemoves = parseInt(setting_manager_1.SettingManager.getSetting("minscrablemoves"), 10);
+        var maxscrablemoves = parseInt(setting_manager_1.SettingManager.getSetting("maxscrablemoves"), 10);
+        var scrambleMoveCount = randomizer_1.Randomizer.getRandomInt(minscrablemoves, maxscrablemoves);
+        console.log("Creating scrambled cube with " + scrambleMoveCount + " random moves");
         var scube = new cube_1.Cube(cube);
         for (var moveIndex = 0; moveIndex < scrambleMoveCount; moveIndex++) {
             var rotatorIndex = randomizer_1.Randomizer.getRandomInt(0, CubeManipulator.cubeRotators.length - 1);
             var rotator = CubeManipulator.cubeRotators[rotatorIndex];
-            if (outputMoves) {
-                console.log("Scramble move " + (moveIndex + 1) + " of " + scrambleMoveCount + ": " + rotator.description);
-            }
+            //if (outputMoves) { console.log(`Scramble move ${moveIndex + 1} of ${scrambleMoveCount}: ${rotator.description}`) }
             scube = rotator.rotate(scube);
         }
         return scube;
     };
-    CubeManipulator.solve = function (cube, outputMoves) {
+    CubeManipulator.solve = function (cube) {
+        var outputmovemodulus = parseInt(setting_manager_1.SettingManager.getSetting("outputmovemodulus"), 10);
+        var outputformattedcube = (setting_manager_1.SettingManager.getSetting("outputformattedcube").toLowerCase() === "true");
+        console.log("Begin solving cube (status every " + outputmovemodulus + " moves)");
         CubeManipulator.moveHistory = new Array();
         var topScoringCube = new MoveEvaluation();
         topScoringCube.cubeId = cube_presentor_1.CubePresentor.removeWhitespace(cube.toString());
@@ -139,8 +142,15 @@ var CubeManipulator = /** @class */ (function () {
             moveCount++;
             CubeManipulator.moveHistory.push(topScoringCube.cubeId);
             // tslint:disable-next-line:max-line-length
-            if (outputMoves) {
-                console.log("Move " + moveCount + ": scoring " + topScoringCube.solutionScore + " with " + topScoringCube.rotator.description + " (" + topScoringCube.cubeId + ")");
+            if (moveCount % outputmovemodulus === 0) {
+                console.log("Move " + moveCount + ": scoring " + topScoringCube.solutionScore + " with " + topScoringCube.rotator.description);
+                if (outputformattedcube) {
+                    var tempCube = new cube_1.Cube(topScoringCube.cubeId);
+                    console.log(cube_presentor_1.CubePresentor.getConsoleRepresentation(tempCube));
+                }
+                else {
+                    console.log(topScoringCube.cubeId);
+                }
             }
         }
         console.log("Solution found in " + moveCount + " moves");
